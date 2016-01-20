@@ -1,0 +1,293 @@
+fileFormatVersion: 2
+guid: 6a0954d8bda7b0945ae33e67e239ccae
+timeCreated: 1450249782
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rotateRightBtn
+    21300002: rotateLeftBtn
+    21300004: pauseBtn
+    21300006: manaIcon
+    21300008: woodIcon
+    21300010: stoneIcon
+    21300012: goldIcon
+    21300014: playBtn
+    21300016: stageOpen
+    21300018: stageLocked
+    21300020: bigStar
+    21300022: smallStar
+    21300024: magicStar
+    21300026: stageGoal
+    21300028: advanceNext
+    21300030: rotateLeft
+    21300032: pause
+    21300034: battle
+    21300036: play
+    21300038: config
+    21300040: toggleGrid
+    21300042: menu
+    21300044: freeMode
+    21300046: mana
+    21300048: wood
+    21300050: stone
+    21300052: gold
+    21300054: star2
+    21300056: star1
+    21300058: bright
+    21300060: store
+    21300062: crystal
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 512
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: advanceNext
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 401
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rotateLeft
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 401
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pause
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 399
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: battle
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 397
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 258
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stageOpen
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 245
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stageLocked
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 263
+        width: 112
+        height: 109
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: config
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 258
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: toggleGrid
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 131
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: menu
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 127
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: freeMode
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 126
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mana
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wood
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 19
+        width: 61
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stone
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 21
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gold
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 21
+        width: 59
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: star2
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 14
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: star1
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 19
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bright
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 18
+        width: 98
+        height: 99
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: store
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 125
+        width: 116
+        height: 111
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crystal
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 71
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
