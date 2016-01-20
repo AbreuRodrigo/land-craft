@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -10,10 +10,10 @@ public class ScoreBehaviour : MonoBehaviour {
 
 	private long longValue = 0;
 
-	UIAchievement achievement;
+	UIEvent achievement;
 
 	void Start() {
-		achievement = FindObjectOfType<UIAchievement>();
+		achievement = FindObjectOfType<UIEvent>();
 	}
 
 	public long LongValue {

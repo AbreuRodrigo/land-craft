@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIAchievement : MonoBehaviour {
+public class UIEvent : MonoBehaviour {
 	public Image achievementContainer;
 
 	public Sprite levelUpAchivement;
@@ -30,7 +30,7 @@ public class UIAchievement : MonoBehaviour {
 	}
 
 	IEnumerator StartAutoHideEvent() {
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(5);
 
 		HideAchievement();
 	}
