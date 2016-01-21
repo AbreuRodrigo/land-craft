@@ -15,7 +15,7 @@ public class PlayerNameText : MonoBehaviour {
 			if(text != "") {
 				game.UpdatePlayerNameOnParse(text);
 			}else {
-				myInputField.text = game.PlayerStatsManager.PlayerStats.playerName;
+				myInputField.text = game.PlayerStatsManager.PlayerStats.PlayerName;
 			}
 		}
 	}

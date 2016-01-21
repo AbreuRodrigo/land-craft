@@ -118,6 +118,8 @@ public class LandBehaviour : IsometricObject {
 			nextType, transform.position, this.MyCell, IsUpgrading, WorldBehaviour.Instance.TestCriterias
 		);
 
+		PlayerExperienceManager.Instance.GiveXpToPlayer(nextType);
+
 		Destroy(gameObject, 0.2f);
 	}
 }

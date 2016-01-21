@@ -9,10 +9,10 @@ public class PlayerStatsContent : MonoBehaviour {
 	public Text xpnl;
 
 	public void UpdatePlayerStatsContent(PlayerStats playerStats) {
-		this.playerName.text = playerStats.playerName;
-		this.level.text = "" + playerStats.level;
-		this.xp.text = "" + playerStats.xp;
-		this.xpnl.text = "" + playerStats.xpnl;
+		this.playerName.text = playerStats.PlayerName;
+		this.level.text = "" + playerStats.Level;
+		this.xp.text = "" + playerStats.XP;
+		this.xpnl.text = "" + playerStats.XPNL;
 	}
 
 	public void UpdatePlayerStatsContent(string playerName, string level, string xp, string xpnl) {

@@ -26,7 +26,7 @@ public class GameLobbyController : CoreController {
 
 	private void RetrieveCrystalsFromServer() {
 		if(PlayerStatsManager != null) {
-			GUIManagerGameLobby.Instance.SetCrystals(PlayerStatsManager.PlayerStats.crystals);
+			GUIManagerGameLobby.Instance.SetCrystals(PlayerStatsManager.PlayerStats.Crystals);
 		}
 	}
 
@@ -68,7 +68,7 @@ public class GameLobbyController : CoreController {
 	}
 
 	private void ValidatePlayerName() {
-		string result = PlayerStatsManager.PlayerStats.playerName;
+		string result = PlayerStatsManager.PlayerStats.PlayerName;
 
 		if (result != null && result != "") {
 			GUIManagerGameLobby.Instance.UpdatePlayerNameText(result);
@@ -76,7 +76,7 @@ public class GameLobbyController : CoreController {
 	}
 
 	private void ValidatePlayerLevel() {
-		int result = PlayerStatsManager.PlayerStats.level;
+		int result = PlayerStatsManager.PlayerStats.Level;
 		
 		if (result != null && result > 0) {
 			GUIManagerGameLobby.Instance.UpdatePlayerLevel("" + result);

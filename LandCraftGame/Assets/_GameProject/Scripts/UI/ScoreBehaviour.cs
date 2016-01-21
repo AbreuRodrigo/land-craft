@@ -6,15 +6,8 @@ public class ScoreBehaviour : MonoBehaviour {
 	public bool hasPulseAnimation;
 	public Text myValue;
 	public Animator myAnimator;
-	public bool doAchievementAnimation;
 
 	private long longValue = 0;
-
-	UIEvent achievement;
-
-	void Start() {
-		achievement = FindObjectOfType<UIEvent>();
-	}
 
 	public long LongValue {
 		get { return longValue; }
@@ -27,10 +20,6 @@ public class ScoreBehaviour : MonoBehaviour {
 
 		if(hasPulseAnimation) {
 			this.PulseAnimation();
-		}
-
-		if(longValue >= 100 && doAchievementAnimation) {
-			achievement.ShowAchievement();
 		}
 	}
 

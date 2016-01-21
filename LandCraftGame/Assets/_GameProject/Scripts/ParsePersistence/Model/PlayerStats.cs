@@ -3,12 +3,15 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerStats : ParseModel {
+	private const int XPBASE = 500;
+	private const int DEVIATION = 100;
+
 	public string playerName = "PlayerName";
 	public int currentStage = 1;
 	public int crystals = 0;
 	public int level = 1;
 	public long xp = 0;
-	public long xpnl = 1000;
+	public long xpnl = XPBASE;
 	public string sharedOnFacebook = "";//DateFormat;
 	public string sharedOnTwitter = "";//DateFormat;
 	public string sharedOnGooglePlus = "";//DateFormat;
@@ -17,6 +20,47 @@ public class PlayerStats : ParseModel {
 	public int inventoryCapacity = 10;
 	public long score = 0;
 	public int totalStars = 0;
+
+	public string PlayerName {
+		get { return playerName; }
+		set { playerName = value; }
+	}
+
+	public int CurrentStage {
+		get { return currentStage; }
+		set { currentStage = value; }
+	}
+
+	public int Crystals {
+		get { return crystals; }
+		set { crystals = value; }
+	}
+
+	public int Level {
+		get { return level; }
+		set { 
+			level = value;
+		}
+	}
+
+	public long XP {
+		get { return xp; }
+		set { HandlePlayerEvolution(value); }
+	}
+
+	public long XPNL {
+		get { return (long)((Level * XPBASE) + ((Level - 1) * DEVIATION)); }
+	}
+
+	private void HandlePlayerEvolution(long moreXp) {
+		xp = moreXp;
+
+		if(xp >= XPNL) {
+			Level++;
+			xpnl = XPNL;
+			EventManager.Instance.ShowLevelUpEvent();
+		}
+	}
 
 	protected override void OnBegin() {
 	}

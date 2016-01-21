@@ -79,6 +79,10 @@ public abstract class CoreController : MonoBehaviour {
 		InitializeComponents();
 	}
 
+	public void OnDisable() {
+		UpdatePlayerOnParse();
+	}
+
 	protected abstract void InitializeComponents();
 
 	public void LoadGamePlayScene() {
@@ -137,7 +141,7 @@ public abstract class CoreController : MonoBehaviour {
 	
 	public void UpdatePlayerNameOnParse(string newName) {
 		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
-			playerStatsManager.PlayerStats.playerName = newName;
+			playerStatsManager.PlayerStats.PlayerName = newName;
 			playerStatsManager.PlayerStats.Save ();
 		}
 	}
@@ -145,6 +149,18 @@ public abstract class CoreController : MonoBehaviour {
 	public void UpdatePlayerScoreOnParse(long newScore) {
 		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
 			playerStatsManager.PlayerStats.score = newScore;
+			playerStatsManager.PlayerStats.Save();
+		}
+	}
+
+	public void UpdatePlayerXPLocally(long xp) {
+		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
+			playerStatsManager.PlayerStats.XP += xp;
+		}
+	}
+
+	public void UpdatePlayerOnParse() {
+		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
 			playerStatsManager.PlayerStats.Save();
 		}
 	}
