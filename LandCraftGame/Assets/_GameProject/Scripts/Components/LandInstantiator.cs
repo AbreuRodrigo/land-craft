@@ -84,6 +84,7 @@ public class LandInstantiator : MonoBehaviour {
 				WorldBehaviour.Instance.GameFreeMode.LandUpgradeLogicsFreeMode(lb);
 			}
 
+			//TODO - Fix here to solve the problem when not having a GUIManagerGameFreeMode on the scene
 			if(lb.hasResource) {
 				GUIManagerGameFreeMode.Instance.ShowResourceCounterByType(lb.type);
 			}

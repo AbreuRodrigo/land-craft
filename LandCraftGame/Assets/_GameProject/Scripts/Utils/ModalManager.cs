@@ -32,12 +32,6 @@ public class ModalManager : MonoBehaviour {
 		}
 	}
 
-	void Update() {
-		if(Input.GetKeyDown(KeyCode.Escape)) {
-			CloseModal();
-		}
-	}
-
 	public void ShowInventoryModal() {
 		modalTitle.sprite = inventoryTitle;
 		ShowInventoryContent();

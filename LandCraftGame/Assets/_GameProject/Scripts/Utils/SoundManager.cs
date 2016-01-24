@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip falling;
 	public AudioClip selector;
 	public AudioClip denied;
+	public AudioClip selectorHarvesting;
+	public AudioClip harvesting;
 
 	private bool sfx = true;
 	private const float FADE_SOUND_SPEED = 0.2f;
@@ -45,6 +47,14 @@ public class SoundManager : MonoBehaviour {
 
 	public void PlayDenied() {
 		PlayOneShotSound(denied);
+	}
+
+	public void PlaySelectorHarvesting() {
+		PlayOneShotSound(selectorHarvesting);
+	}
+
+	public void PlayHarvesting() {
+		PlayOneShotSound(harvesting);
 	}
 
 	private void PlayOneShotSound(AudioClip clip) {

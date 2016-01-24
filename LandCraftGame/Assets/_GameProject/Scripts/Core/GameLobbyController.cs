@@ -22,6 +22,12 @@ public class GameLobbyController : CoreController {
 		}
 	}
 
+	void Update() {
+		if(Input.GetKeyDown(KeyCode.Escape)) {
+			ConfirmManager.Instance.HandleConfirmExitModal();
+		}
+	}
+
 	protected override void InitializeComponents() { }
 
 	private void RetrieveCrystalsFromServer() {

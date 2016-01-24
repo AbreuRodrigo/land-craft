@@ -17,8 +17,7 @@ public class GUIManagerGameLobby : GUIManagerBase {
 	public Image facebookBtnStruct;
 	public Image twitterBtnStruct;
 	public Image googlePlusBtnStruct;
-	public Image interactionBlocker;
-			
+				
 	[Header("Texts")]
 	public Text crystals;
 
@@ -31,7 +30,7 @@ public class GUIManagerGameLobby : GUIManagerBase {
 		}
 	}
 
-	void Start () {
+	void Start() {
 		base.Start();
 
 		if(playerNameText == null) {
@@ -51,6 +50,16 @@ public class GUIManagerGameLobby : GUIManagerBase {
 			playFreeModeBtn.GetComponent<UIButtonExtraBehaviour>().DoMyClick,
 			game.LoadGameFreeModeScene
 		);
+	}
+
+	public void DoCancelExitConfirmButtonPress() {
+		SoundManager.Instance.PlaySelector();
+		ConfirmManager.Instance.HandleConfirmExitModal();
+	}
+
+	public void DoConfirmExitButtonPress() {
+		SoundManager.Instance.PlaySelector();
+		Application.Quit();
 	}
 
 	public void DoInventoryButtonPress() {
@@ -98,14 +107,6 @@ public class GUIManagerGameLobby : GUIManagerBase {
 	
 	public void ShowGooglePlusHalo() {
 		googlePlusBtnStruct.gameObject.SetActive(true);
-	}
-
-	public void DisableGUIInteraction() {
-		interactionBlocker.gameObject.SetActive(true);
-	}
-	
-	public void EnableGUIInteraction() {
-		interactionBlocker.gameObject.SetActive(false);
 	}
 
 	public void SetCrystals(int crystals) {

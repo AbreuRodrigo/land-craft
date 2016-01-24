@@ -89,6 +89,7 @@ public class InputManager : MonoBehaviour {
 					targetLand.HarvestMyResource();
 					ClearHarvestingSelection();
 					WorldBehaviour.Instance.LandAttractor.DoAttractionLogics(targetLand);
+					SoundManager.Instance.PlayHarvesting();
 				} else {
 					ClearHarvestingSelection();
 					targetLand.selectedToHarvest = true;
@@ -118,6 +119,8 @@ public class InputManager : MonoBehaviour {
 
 	private void DoHarvestSelectionLogics(Vector3 targetPoint) {
 		HarvestingSelector.Reposition(targetPoint);
+
+		SoundManager.Instance.PlaySelectorHarvesting();
 	}
 
 	public void DoCellPressFromOutside(int cellIndex) {

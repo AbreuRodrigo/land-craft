@@ -11,6 +11,7 @@ public abstract class GUIManagerBase : MonoBehaviour {
 	public CoreController game;
 	public ScreenFader screenFader;
 	public ScreenFilter screenFilter;
+	public Image interactionBlocker;
 
 	protected virtual void Start() {
 		if(game != null) {
@@ -72,6 +73,18 @@ public abstract class GUIManagerBase : MonoBehaviour {
 		
 		if(screenFader != null) {
 			screenFader.FadeOutFast(null, game.LoadGameFreeModeScene);
+		}
+	}
+
+	public void DisableGUIInteraction() {
+		if(interactionBlocker != null) {
+			interactionBlocker.gameObject.SetActive(true);
+		}
+	}
+	
+	public void EnableGUIInteraction() {
+		if(interactionBlocker != null) {
+			interactionBlocker.gameObject.SetActive(false);
 		}
 	}
 
