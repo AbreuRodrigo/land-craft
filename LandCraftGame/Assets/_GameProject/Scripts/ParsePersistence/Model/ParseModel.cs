@@ -32,8 +32,9 @@ public abstract class ParseModel {
 		}
 
 		this.OnBegin();
-		
-		this.SaveModelStatsOnNotExists();
+
+		this.Save();
+		//this.SaveModelStatsOnNotExists();
 	}
 
 	protected abstract void OnBegin();
@@ -42,12 +43,12 @@ public abstract class ParseModel {
 	protected void SaveModelStatsOnNotExists() {
 		ParseQuery<ParseObject> query = ParseObject.GetQuery(this.className);
 		query = query.WhereEqualTo(CLIENT_TOKEN_LABEL, clientToken);
-		query.FirstAsync().ContinueWith(SaveAfterwards);
+		//query.FirstAsync().ContinueWith(SaveAfterwards);
 	}
 
 	void SaveAfterwards(Task<ParseObject> t) {
 		if (t.IsFaulted) {
-			this.Save ();
+			this.Save();
 		} else {
 			this.LoadStats();
 		}

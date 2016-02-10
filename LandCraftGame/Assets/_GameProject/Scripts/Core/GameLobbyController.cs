@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Advertisements;
 using System;
 using System.Collections.Generic;
 
@@ -11,6 +12,8 @@ public class GameLobbyController : CoreController {
 	}
 
 	void Start() {
+		//ShowAds();
+
 		if(PlayerStatsManager != null) {
 			RetrieveCrystalsFromServer();
 			ValidateSharedOnFacebook();
@@ -86,6 +89,12 @@ public class GameLobbyController : CoreController {
 		
 		if (result != null && result > 0) {
 			GUIManagerGameLobby.Instance.UpdatePlayerLevel("" + result);
+		}
+	}
+
+	private void ShowAds() {
+		if(Advertisement.IsReady()) {
+			Advertisement.Show();
 		}
 	}
 }
