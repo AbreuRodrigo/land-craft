@@ -21,7 +21,6 @@ public class GameLobbyController : CoreController {
 			ValidateSharedOnGooglePlus();
 			ValidatePlayerName();
 			ValidatePlayerLevel();
-			//playerStatsManager.ListPlayerStatsOrderByScore(); Recupera o ranking dos jogadores por nome e score
 		}
 	}
 

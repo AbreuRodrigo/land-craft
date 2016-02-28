@@ -1,4 +1,3 @@
-using Parse;
 using UnityEngine;
 using System.Collections;
 using System.Reflection;
@@ -80,7 +79,7 @@ public abstract class CoreController : MonoBehaviour {
 	}
 
 	public void OnDisable() {
-		UpdatePlayerOnParse();
+		UpdatePlayerOnServer();
 	}
 
 	protected abstract void InitializeComponents();
@@ -139,14 +138,14 @@ public abstract class CoreController : MonoBehaviour {
 		}
 	}
 	
-	public void UpdatePlayerNameOnParse(string newName) {
+	public void UpdatePlayerNameOnServer(string newName) {
 		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
 			playerStatsManager.PlayerStats.PlayerName = newName;
-			playerStatsManager.PlayerStats.Save ();
+			playerStatsManager.PlayerStats.Save();
 		}
 	}
 
-	public void UpdatePlayerScoreOnParse(long newScore) {
+	public void UpdatePlayerScoreOnServer(long newScore) {
 		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
 			playerStatsManager.PlayerStats.score = newScore;
 			playerStatsManager.PlayerStats.Save();
@@ -159,7 +158,7 @@ public abstract class CoreController : MonoBehaviour {
 		}
 	}
 
-	public void UpdatePlayerOnParse() {
+	public void UpdatePlayerOnServer() {
 		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
 			playerStatsManager.PlayerStats.Save();
 		}

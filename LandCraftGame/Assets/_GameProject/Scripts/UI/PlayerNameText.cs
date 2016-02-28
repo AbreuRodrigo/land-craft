@@ -1,4 +1,4 @@
-﻿using UnityEngine.UI;
+using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
 
@@ -13,7 +13,7 @@ public class PlayerNameText : MonoBehaviour {
 
 		if(game != null && text != null) {
 			if(text != "") {
-				game.UpdatePlayerNameOnParse(text);
+				game.UpdatePlayerNameOnServer(text);
 			}else {
 				myInputField.text = game.PlayerStatsManager.PlayerStats.PlayerName;
 			}

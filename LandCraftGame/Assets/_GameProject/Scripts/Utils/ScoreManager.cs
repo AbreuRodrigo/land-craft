@@ -71,7 +71,7 @@ public class ScoreManager : MonoBehaviour {
 	private void ValidateSaveNewHighScore() {
 		if(score.LongValue > highscore.LongValue) {
 			highscore.OverwriteValue(score.LongValue);
-			game.UpdatePlayerScoreOnParse(highscore.LongValue);
+			game.UpdatePlayerScoreOnServer(highscore.LongValue);
 		}
 	}
 	
