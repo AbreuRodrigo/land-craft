@@ -21,11 +21,10 @@ public class PlayerStatsManager : ServerObjectManager {
 
 	protected override void LoadResponse(DataLabObject dataObject) {
 		if (dataObject != null) {
-			playerStats.ConvertObjectToServerObject(dataObject);
-			playerStats.Online = true;
+			playerStats.ConvertObjectToServerObject (dataObject);
+		} else {
+			playerStats.Save ();
 		}
-
-		playerStats.Save();
 
 		HasLoaded = true;
 	}

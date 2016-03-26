@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Reflection;
 
@@ -78,8 +79,16 @@ public abstract class CoreController : MonoBehaviour {
 		InitializeComponents();
 	}
 
-	public void OnDisable() {
-		UpdatePlayerOnServer();
+	public virtual void OnApplicationQuit() {
+		UpdatePlayerOfflineOnServer();
+	}
+
+	public virtual void OnApplicationPause(bool pauseStatus) {
+		if(pauseStatus) {
+			UpdatePlayerOfflineOnServer();
+		}else {
+			UpdatePlayerOnlineOnServer();
+		}
 	}
 
 	protected abstract void InitializeComponents();
@@ -158,16 +167,29 @@ public abstract class CoreController : MonoBehaviour {
 		}
 	}
 
-	public void UpdatePlayerOnServer() {
-		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
+	public void UpdatePlayerOnlineOnServer() {
+		if (playerStatsManager != null && playerStatsManager.PlayerStats != null) {
+			playerStatsManager.PlayerStats.Online = true;
+			playerStatsManager.PlayerStats.Save();
+		}
+	}
+
+	public void UpdatePlayerOfflineOnServer() {
+		if (playerStatsManager != null && playerStatsManager.PlayerStats != null) {
 			playerStatsManager.PlayerStats.Online = false;
 			playerStatsManager.PlayerStats.Save();
 		}
 	}
 
-	IEnumerator LoadSceneInSeconds(string scene) {
-		yield return new WaitForSeconds(1.5f);
+	public void UpdatePlayerOnServer() {
+		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
+			playerStatsManager.PlayerStats.Save();
+		}
+	}
 
-		Application.LoadLevel(scene);
+	IEnumerator LoadSceneInSeconds(string scene) {
+		yield return new WaitForSeconds(1f);
+
+		SceneManager.LoadScene(scene);
 	}
 }

@@ -97,16 +97,14 @@ namespace DataLab {
 		}
 
 		public Sprite GetSprite(string key) {
-			byte[] bytes = System.Convert.FromBase64String((string)fields[key]);
+			Texture2D texture = new Texture2D (64, 64, TextureFormat.RGB24, false);
+			texture.LoadImage(System.Convert.FromBase64String((string)fields[key]));
 
-			Texture2D t = new Texture2D (64, 64, TextureFormat.RGB24, false);
-			t.LoadImage(bytes);
-
-			Rect r = new Rect (0, 0, t.width, t.height);
-
-			Sprite s = Sprite.Create(t, r, new Vector2(0.5f, 0.5f));
-
-			return s;
+			return Sprite.Create(
+				texture, 
+				new Rect (0, 0, texture.width, texture.height), 
+				new Vector2(0.5f, 0.5f)
+			);
 		}
 
 		private void SaveImage(Texture2D t) {

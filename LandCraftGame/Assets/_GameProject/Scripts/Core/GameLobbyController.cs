@@ -19,6 +19,9 @@ public class GameLobbyController : CoreController {
 			ValidateSharedOnGooglePlus();
 			ValidatePlayerName();
 			ValidatePlayerLevel();
+
+			PlayerStatsManager.PlayerStats.Online = true;
+			PlayerStatsManager.PlayerStats.Save();
 		}
 	}
 

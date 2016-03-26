@@ -12,10 +12,10 @@ public class StoreContent : MonoBehaviour {
 	private Vector3 itemPanelSize = new Vector3 (1, 1, 1);
 
 	void Start() {		
-		ResetStoreContents();
+		ResetSpellShopContents();
 	}
 
-	public void ResetStoreContents() {
+	public void ResetSpellShopContents() {
 		RectTransform itemRect = itemPrefab.GetComponent<RectTransform>();
 
 		int maxItemsInTheScreen = (int) (content.rect.width / itemRect.rect.width);

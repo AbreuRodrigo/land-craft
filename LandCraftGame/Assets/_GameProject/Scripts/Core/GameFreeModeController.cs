@@ -15,10 +15,6 @@ public class GameFreeModeController : CoreController {
 		}
 	}
 
-	void OnDisable() {
-		base.OnDisable();
-	}
-
 	protected override void InitializeComponents() { }
 
 	/*public void TestStageGameOver() {

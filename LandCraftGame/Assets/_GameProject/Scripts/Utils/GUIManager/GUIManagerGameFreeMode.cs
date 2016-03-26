@@ -47,10 +47,10 @@ public class GUIManagerGameFreeMode : GUIManagerBasePlay {
 
 	public void ShowResourceCounterByType(LandType type) {
 		if(type.Equals(LandType.ManaTree)) {
-			ShowManaResourceCounter();
+			//ShowManaResourceCounter();
 		}
 		if(type.Equals(LandType.Trees)) {
-			ShowWoodResourceCounter();
+			//ShowWoodResourceCounter();
 		}
 	}
 }

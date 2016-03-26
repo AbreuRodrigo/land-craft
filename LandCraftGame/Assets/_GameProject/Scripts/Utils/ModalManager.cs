@@ -99,7 +99,7 @@ public class ModalManager : MonoBehaviour {
 		inventoryContentPanel.gameObject.SetActive(false);
 		playerStatsContentPanel.gameObject.SetActive(false);
 		storeContentPanel.gameObject.SetActive(true);
-		storeContent.ResetStoreContents();
+		storeContent.ResetSpellShopContents();
 	}
 
 	private void SetupGameStore() {
