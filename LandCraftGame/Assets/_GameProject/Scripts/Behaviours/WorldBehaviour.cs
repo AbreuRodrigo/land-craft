@@ -16,7 +16,7 @@ public class WorldBehaviour : MonoBehaviour {
 	public GamePlayController GamePlay { 
 		get { return (GamePlayController) Game; }
 	}
-	public GameFreeModeController GameFreeMode { 
+	public GameFreeModeController GameFreeMode {
 		get { return (GameFreeModeController) Game; }
 	}
 
@@ -64,9 +64,9 @@ public class WorldBehaviour : MonoBehaviour {
 		if(Game != null && MyGrid != null) {
 			if(OtherGrid != null && Game.StateManager.IsGamePlayState) {
 				GamePlay.TestStageGoalCriterias(MyGrid, OtherGrid);
-			}else if(Game.StateManager.IsGameFreeMode) {
+			}/*else if(Game.StateManager.IsGameFreeMode) {
 				GameFreeMode.TestStageGameOver();
-			}
+			}*/
 		}
 	}
 

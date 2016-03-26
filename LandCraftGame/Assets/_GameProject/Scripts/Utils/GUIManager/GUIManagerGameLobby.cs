@@ -39,6 +39,8 @@ public class GUIManagerGameLobby : GUIManagerBase {
 	}
 
 	public void DoLobbyPlayLevelsButtonPress() {
+		DisableGUIInteractionInvisibleTheme();
+
 		DoSimpleClickFadeLogics (
 			playLevelsBtn.GetComponent<UIButtonExtraBehaviour>().DoMyClick,
 			game.LoadGameModeSelection

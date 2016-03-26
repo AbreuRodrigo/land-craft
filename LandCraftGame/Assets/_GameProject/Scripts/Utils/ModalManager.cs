@@ -8,7 +8,10 @@ public class ModalManager : MonoBehaviour {
 	public static ModalManager Instance;
 
 	public GameLobbyController game;
+
+	[Header("Contents")]
 	public PlayerStatsContent playerStatsContent;
+	public StoreContent storeContent;
 
 	[Header("Components")]
 	public ModalPanelFX modalPanel;
@@ -26,9 +29,22 @@ public class ModalManager : MonoBehaviour {
 	public GameObject playerStatsContentPanel;
 	public GameObject storeContentPanel;
 
+	private StoreItemManager storeItemManager;
+
+	public int TotalItems { get; set; }
+
 	void Awake() {
 		if(Instance == null) {
 			Instance = this;
+		}
+
+		storeItemManager = FindObjectOfType<StoreItemManager>();
+	}
+
+	void Start() {
+		if (storeItemManager != null) {
+			TotalItems = storeItemManager.items.Count;
+			SetupGameStore ();
 		}
 	}
 
@@ -83,5 +99,17 @@ public class ModalManager : MonoBehaviour {
 		inventoryContentPanel.gameObject.SetActive(false);
 		playerStatsContentPanel.gameObject.SetActive(false);
 		storeContentPanel.gameObject.SetActive(true);
+		storeContent.ResetStoreContents();
+	}
+
+	private void SetupGameStore() {
+		if(storeContent) {
+			int index = 0;
+
+			foreach(StoreItemView item in storeItemManager.items) {
+				storeContent.AddNewItem (item.Name, item.Description, item.Price, item.Image, index, 100, 0);
+				index++;
+			}
+		}
 	}
 }

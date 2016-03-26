@@ -1,7 +1,9 @@
 ﻿using System;
 using UnityEngine;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace DataLab {
 
@@ -42,6 +44,10 @@ namespace DataLab {
 			DataLabManager.Instance.LoadObject(documentName, attrName, attrValue, asyncResponse);
 		}
 
+		public void List(System.Action<List<DataLabObject>> asyncResponse) {
+			DataLabManager.Instance.ListObjects(documentName, asyncResponse);
+		}
+
 		public void Delete(System.Action<DataLabObject> asyncResponse) {
 			DataLabManager.Instance.DeleteObject(this, asyncResponse);
 		}
@@ -80,6 +86,32 @@ namespace DataLab {
 
 		public string GetString(string key) {
 			return Convert.ToString(fields.ContainsKey(key) ? fields[key] : "");
+		}
+
+		public byte[] GetBytes(string key) {
+			BinaryFormatter bf = new BinaryFormatter();
+			MemoryStream ms = new MemoryStream();
+			bf.Serialize(ms, fields[key]);
+
+			return ms.ToArray();
+		}
+
+		public Sprite GetSprite(string key) {
+			byte[] bytes = System.Convert.FromBase64String((string)fields[key]);
+
+			Texture2D t = new Texture2D (64, 64, TextureFormat.RGB24, false);
+			t.LoadImage(bytes);
+
+			Rect r = new Rect (0, 0, t.width, t.height);
+
+			Sprite s = Sprite.Create(t, r, new Vector2(0.5f, 0.5f));
+
+			return s;
+		}
+
+		private void SaveImage(Texture2D t) {
+			byte[] bytes = t.EncodeToJPG ();
+			File.WriteAllBytes ("E:/myImage.jpg", bytes);
 		}
 	}
 }

@@ -7,7 +7,7 @@ public class PlayerStats : ServerObject {
 
 	public string playerName = "PlayerName";
 	public int currentStage = 1;
-	public int crystals = 0;
+	public int crystals = 10;
 	public int level = 1;
 	public long xp = 0;
 	public long xpnl = XPBASE;
@@ -19,6 +19,7 @@ public class PlayerStats : ServerObject {
 	public int inventoryCapacity = 10;
 	public long score = 0;
 	public int totalStars = 0;
+	public bool online = false;
 
 	public string PlayerName {
 		get { return playerName; }
@@ -49,6 +50,11 @@ public class PlayerStats : ServerObject {
 		get { return (long)((Level * XPBASE) + ((Level - 1) * DEVIATION)); }
 	}
 
+	public bool Online {
+		get { return online; }
+		set { online = value; }
+	}
+
 	private void HandlePlayerEvolution(long moreXp) {
 		xp = moreXp;
 
@@ -77,5 +83,6 @@ public class PlayerStats : ServerObject {
 		this.inventoryCapacity = dataObject.GetInt("inventoryCapacity");
 		this.score = dataObject.GetLong("score");
 		this.totalStars = dataObject.GetInt("totalStars");
+		this.online = dataObject.GetBoolean("online");
 	}
 }

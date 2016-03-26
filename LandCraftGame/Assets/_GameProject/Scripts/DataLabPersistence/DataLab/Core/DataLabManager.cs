@@ -4,10 +4,16 @@ using System.Linq;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace DataLab {
 
 	public class DataLabManager : MonoBehaviour {
+		private const string DOCUMENT_NAME = "documentName";
+
+		[Header("Configurations")]
+		public int timeOut = 10;
+
 		[Header("Credentials")]
 		public string username;
 		public string password;
@@ -15,6 +21,7 @@ namespace DataLab {
 		[Header("Connection")]
 		public string restGetURL;
 		public string restFindURL;
+		public string restListURL;
 		public string restSaveURL;
 		public string restUpdateURL;
 		public string restPersistURL;
@@ -26,7 +33,7 @@ namespace DataLab {
 		
 		private Dictionary<string, string> headers;
 
-		private const int TIMEOUT = 20;
+		public bool HasLoaded { get; set; }
 
 		void Awake() {
 			if(instance == null) {
@@ -50,7 +57,17 @@ namespace DataLab {
 			
 			WWW link = new WWW(URL, null, headers);
 			
-			StartCoroutine(WaitForRequest(link, asyncResponse));
+			StartCoroutine(WaitForSimpleResponse(link, asyncResponse));
+		}
+
+		public void ListObjects(string documentName, System.Action<List<DataLabObject>> asyncResponse) {
+			string json = StringToJSON(DOCUMENT_NAME, documentName);
+
+			byte[] data = System.Text.Encoding.UTF8.GetBytes(json);
+
+			WWW link = new WWW(restListURL, data, headers);
+
+			StartCoroutine(WaitForListResponse(link, asyncResponse));
 		}
 
 		public void DeleteObject(DataLabObject obj, System.Action<DataLabObject> asyncResponse) {
@@ -68,50 +85,114 @@ namespace DataLab {
 					
 					WWW link = new WWW(restPersistURL, data, headers);
 
-					StartCoroutine(WaitForRequest(link, asyncResponse));
+					StartCoroutine(WaitForSimpleResponse(link, asyncResponse));
 				}
 			}
 		}
 
-		private IEnumerator WaitForRequest(WWW link, System.Action<DataLabObject> asyncResponse) {
+		private IEnumerator WaitForSimpleResponse(WWW link, System.Action<DataLabObject> asyncResponse) {
 			int timer = 0;
 			bool timedOut = false;
 
+			HasLoaded = false;
+
 			while (!link.isDone || timedOut) {
-				if(timer > (TIMEOUT * 10)) {
+				if(timer >= timeOut) {
 					timedOut = true;
 				}
 
 				timer++;
 
-				yield return new WaitForSeconds(0.01f);
+				yield return new WaitForSeconds(1f);
 			}
-			
-			DataLabObject response = null;
+
+			DataLabObject response = new DataLabObject("Response");
 
 			if (link.error == null && !timedOut) {
 				JSONNode json = JSON.Parse(link.text);
 				
 				if(json != null) {
-					response = new DataLabObject("Response");
 					response.Fields = json.Elements;
 				}
 			} else {
 				string urlErrorMsg = link.error;
 				
-				if(restGetURL == null || restPersistURL == null) {
+				if (restGetURL == null || restPersistURL == null) {
 					urlErrorMsg += " - Please check your URLs.";
 				}
-				
-				response.AddField("code", "1")
-					    .AddField("message", urlErrorMsg);
+
+				response.AddField ("code", "1")
+				        .AddField ("message", urlErrorMsg);				
 			}
 
 			LastResponse = response;
 
 			if(asyncResponse != null) {
-				asyncResponse(response);
+				asyncResponse(LastResponse);
 			}
+
+			HasLoaded = true;
+		}
+
+		private IEnumerator WaitForListResponse(WWW link, System.Action<List<DataLabObject>> asyncResponse) {
+			int timer = 0;
+			bool timedOut = false;
+
+			HasLoaded = false;
+
+			while (!link.isDone || timedOut) {
+				if(timer >= timeOut) {
+					timedOut = true;
+				}
+
+				timer++;
+
+				yield return new WaitForSeconds(1f);
+			}
+
+			List<DataLabObject> responseList = new List<DataLabObject>();
+
+			if (link.error == null && !timedOut) {
+				JSONNode json = JSON.Parse(link.text);
+
+				if(json != null) {					
+					JSONArray array = json.AsArray;
+
+					foreach (JSONNode node in array.Childs) {
+						DataLabObject responseObject = new DataLabObject("Response");
+						responseObject.Fields = node.Elements;
+
+						responseList.Add(responseObject);
+					}
+				}
+			} else {
+				string urlErrorMsg = link.error;
+
+				if (restGetURL == null || restPersistURL == null) {
+					urlErrorMsg += " - Please check your URLs.";
+				}
+
+				responseList.Add(new DataLabObject("Response"));
+
+				responseList[0].AddField ("code", "1")
+					   		   .AddField ("message", urlErrorMsg);				
+			}
+
+			if(asyncResponse != null) {
+				asyncResponse(responseList);
+			}
+
+			HasLoaded = true;
+		}
+
+		private string StringToJSON(string key, string value) {
+			string json = "{";
+			json += "\"" + key + "\"";
+			json += ":\"" + value + "\"";
+
+			json += "}";
+
+			return json;
 		}
 
 		private string ObjectToJSON(DataLabObject obj) {

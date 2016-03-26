@@ -24,17 +24,17 @@ public class UIResourceCounter : MonoBehaviour {
 	}
 
 	public void FadeIn() {
-		if(!Visible) {
+		/*if(!Visible) {
 			Visible = true;
 			myAnimtor.Play("UIResourceFadeIn");
-		}
+		}*/
 	}
 
 	public void FadeOut() {
-		if(Visible) {
+		/*if(Visible) {
 			Visible = false;
 			myAnimtor.Play("UIResourceFadeOut");
-		}
+		}*/
 	}
 
 	private void UpdateResourceAmountTxt() {

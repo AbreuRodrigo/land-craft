@@ -53,7 +53,7 @@ public class InputManager : MonoBehaviour {
 			if(targetIsoObj != null) { 
 				if(targetIsoObj.isoType.Equals(IsoType.Cell)) {
 					DoInputSelectionLogicsByPointForCell(targetIsoObj);
-				} else if(targetIsoObj.isoType.Equals(IsoType.Land)) {
+				} else if(WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode && targetIsoObj.isoType.Equals(IsoType.Land)) {
 					DoInputSelectionLogicsByPointForLand(targetIsoObj);
 				}
 			}

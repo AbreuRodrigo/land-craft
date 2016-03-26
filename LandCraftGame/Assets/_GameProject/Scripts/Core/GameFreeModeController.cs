@@ -21,11 +21,11 @@ public class GameFreeModeController : CoreController {
 
 	protected override void InitializeComponents() { }
 
-	public void TestStageGameOver() {
+	/*public void TestStageGameOver() {
 		if (!WorldBehaviour.Instance.StillHasEmptyCells()) {
 			StartGameOverProcess();
 		}
-	}
+	}*/
 
 	private void SaveProgress() {
 		ProgressManager.SaveData();
@@ -40,12 +40,12 @@ public class GameFreeModeController : CoreController {
 	}
 
 	public void HarvestTargetLand(Vector3 origin, LandType landType) {
-		if(resourceFxManager != null && origin != null && landType != null) {
+		if(resourceFxManager != null && origin != null) {
 			resourceFxManager.InstantiateMoreResource(origin, landType);
 		}
 	}
 
-	public void StartGameOverProcess() {
+	/*public void StartGameOverProcess() {
 		StateManager.ChangeToGameOverState();
 		
 		GameCamera.TurnOnBlackAndWhite();
@@ -59,5 +59,5 @@ public class GameFreeModeController : CoreController {
 		
 		GUIManagerGameFreeMode.Instance.ShowGamePlayToStageSelectionBtn(1f);
 		GUIManagerGameFreeMode.Instance.ShowPlayAgainBtn(1.5f);
-	}
+	}*/
 }

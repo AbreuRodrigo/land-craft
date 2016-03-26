@@ -76,6 +76,20 @@ public abstract class GUIManagerBase : MonoBehaviour {
 		}
 	}
 
+	public void DisableGUIInteractionInvisibleTheme() {
+		if (interactionBlocker != null) {
+			interactionBlocker.color = new Color(1, 1, 1, 0);
+			DisableGUIInteraction();
+		}
+	}
+
+	public void DisableGUIInteractionBlackTheme() {
+		if (interactionBlocker != null) {
+			interactionBlocker.color = new Color(1, 1, 1, 0.5f);
+			DisableGUIInteraction();
+		}	
+	}
+
 	public void DisableGUIInteraction() {
 		if(interactionBlocker != null) {
 			interactionBlocker.gameObject.SetActive(true);

@@ -69,9 +69,7 @@ public class LandInstantiator : MonoBehaviour {
 			AssetManager.Instance.GetLandPrefabByType(type).gameObject, position, Quaternion.identity
 		);
 
-		if(land != null) {			
-			//WorldBehaviour.Instance.AddLandEvent();
-
+		if(land != null) {
 			LandBehaviour lb = land.GetComponent<LandBehaviour>();
 			lb.MyCell = selectedCell;
 			lb.MyCell.MyLand = lb;
@@ -84,8 +82,7 @@ public class LandInstantiator : MonoBehaviour {
 				WorldBehaviour.Instance.GameFreeMode.LandUpgradeLogicsFreeMode(lb);
 			}
 
-			//TODO - Fix here to solve the problem when not having a GUIManagerGameFreeMode on the scene
-			if(lb.hasResource) {
+			if(lb.hasResource && WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode) {
 				GUIManagerGameFreeMode.Instance.ShowResourceCounterByType(lb.type);
 			}
 

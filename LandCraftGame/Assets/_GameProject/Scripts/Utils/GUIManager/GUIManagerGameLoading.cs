@@ -12,6 +12,9 @@ public class GUIManagerGameLoading : GUIManagerBase {
 	public Text loading;
 	public Text noInternetConnection;
 
+	[Header("Components")]
+	public TopScreenMessage topScreenMessage;
+
 	void Awake() {
 		if(Instance == null) {
 			Instance = this;
@@ -31,12 +34,33 @@ public class GUIManagerGameLoading : GUIManagerBase {
 	}
 	
 	public void ShowNoInternetConnectionMessage() {
-		logo.enabled = false;
-		logo.gameObject.SetActive(false);
-		
-		loading.enabled = false;
-		loading.gameObject.SetActive(false);
+		DisableLogo();		
+		DisableLoadingMessage();
 		
 		noInternetConnection.gameObject.SetActive(true);
+	}
+
+	public void PlayTakingLongerMessage() {
+		if (topScreenMessage != null) {
+			topScreenMessage.PlayTakingLongerMessage();
+		}
+	}
+
+	public void PlayCouldNotConnectMessage() {
+		DisableLoadingMessage();
+
+		if (topScreenMessage != null) {
+			topScreenMessage.PlayCouldNotConnectMessage();
+		}
+	}
+
+	private void DisableLogo() {
+		logo.enabled = false;
+		logo.gameObject.SetActive(false);
+	}
+
+	private void DisableLoadingMessage() {
+		loading.enabled = false;
+		loading.gameObject.SetActive(false);
 	}
 }

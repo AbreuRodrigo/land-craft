@@ -18,9 +18,9 @@ public class GUIManagerGamePlay : GUIManagerBasePlay {
 
 	[Header("Texts")]
 	public Text stageTimer;
-	public Text stepManager;
-	public Text currentSteps;
-	public Text maxSteps;
+	//public Text stepManager;
+	//public Text currentSteps;
+	//public Text maxSteps;
 
 	void Awake() {
 		if(Instance == null) {
@@ -53,12 +53,12 @@ public class GUIManagerGamePlay : GUIManagerBasePlay {
 	}
 
 	public void UpdateLevelStep(int givenSteps) {
-		if(currentSteps != null) {
-			currentSteps.text = "" + WorldBehaviour.Instance.GamePlay.CurrentSteps;
-		}
-		if(stepManager != null) {
-			stepManager.GetComponent<Animator>().Play("Pulse");
-		}
+		//if(currentSteps != null) {
+		//	currentSteps.text = "" + WorldBehaviour.Instance.GamePlay.CurrentSteps;
+		//}
+		//if(stepManager != null) {
+		//	stepManager.GetComponent<Animator>().Play("Pulse");
+		//}
 	}
 
 	public void ShowStageClearMessage() {
@@ -85,9 +85,9 @@ public class GUIManagerGamePlay : GUIManagerBasePlay {
 		HideToGamePlayButton();
 		HideYourGoalText();
 		
-		if(stepManager != null) {
-			stepManager.GetComponent<Animator>().Play("Hidden");
-		}
+		//if(stepManager != null) {
+		//	stepManager.GetComponent<Animator>().Play("Hidden");
+		//}
 		
 		if(gameStateMessage != null) {
 			gameStateMessage.RunGameOverMessage();
@@ -139,9 +139,9 @@ public class GUIManagerGamePlay : GUIManagerBasePlay {
 			yourGoalText.GetComponent<Animator> ().Play ("UITextShowUp");
 		}
 		
-		if(stepManager != null) {
-			stepManager.GetComponent<Animator> ().Play ("Hidden");
-		}
+		//if(stepManager != null) {
+		//	stepManager.GetComponent<Animator> ().Play ("Hidden");
+		//}
 		
 		game.GameCamera.VisualizeOtherView();
 		game.ChangeToOtherGameView();
@@ -150,12 +150,12 @@ public class GUIManagerGamePlay : GUIManagerBasePlay {
 	}
 	
 	void StartUIEventForGamePlayState() {
-		if(maxSteps != null) {
-			maxSteps.text = "/" + WorldBehaviour.Instance.GamePlay.MaxSteps;
-		}
-		if(currentSteps != null) {
-			currentSteps.text = "" + WorldBehaviour.Instance.GamePlay.CurrentSteps;
-		}
+		//if(maxSteps != null) {
+		//	maxSteps.text = "/" + WorldBehaviour.Instance.GamePlay.MaxSteps;
+		//}
+		//if(currentSteps != null) {
+		//	currentSteps.text = "" + WorldBehaviour.Instance.GamePlay.CurrentSteps;
+		//}
 		
 		if(!game.StageIsOnGoing) {
 			game.StageIsOnGoing = true;
@@ -173,9 +173,9 @@ public class GUIManagerGamePlay : GUIManagerBasePlay {
 			yourGoalText.GetComponent<Animator>().Play("UITextHideDown");
 		}
 		
-		if(stepManager != null) {
-			stepManager.GetComponent<Animator>().Play("Visible");
-		}
+		//if(stepManager != null) {
+		//	stepManager.GetComponent<Animator>().Play("Visible");
+		//}
 		
 		game.GameCamera.VisualizeMyView();
 		game.ChangeToMyGameView();

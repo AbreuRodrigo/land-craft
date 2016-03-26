@@ -1,6 +1,7 @@
 ﻿using DataLab;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class ServerObjectManager : MonoBehaviour {
 
@@ -16,8 +17,9 @@ public abstract class ServerObjectManager : MonoBehaviour {
 	}
 
 	private void ResponseFromLoad(DataLabObject dataObject) {
-		this.LoadStatsResponse(dataObject);
+		this.LoadResponse(dataObject);
 	}
 
-	protected abstract void LoadStatsResponse(DataLabObject dataObject);
+	protected abstract void LoadResponse(DataLabObject dataObject);
+	protected abstract void LoadResponseList(List<DataLabObject> dataObjectList);
 }

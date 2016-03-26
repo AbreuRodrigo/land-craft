@@ -7,13 +7,11 @@ public class GameLobbyController : CoreController {
 	private DateTime now;
 	private DateTime parsed;
 
-	public void Awake() {
+	void Awake() {
 		base.Awake();
 	}
 
 	void Start() {
-		//ShowAds();
-
 		if(PlayerStatsManager != null) {
 			RetrieveCrystalsFromServer();
 			ValidateSharedOnFacebook();
@@ -86,14 +84,8 @@ public class GameLobbyController : CoreController {
 	private void ValidatePlayerLevel() {
 		int result = PlayerStatsManager.PlayerStats.Level;
 		
-		if (result != null && result > 0) {
+		if (result > 0) {
 			GUIManagerGameLobby.Instance.UpdatePlayerLevel("" + result);
-		}
-	}
-
-	private void ShowAds() {
-		if(Advertisement.IsReady()) {
-			Advertisement.Show();
 		}
 	}
 }

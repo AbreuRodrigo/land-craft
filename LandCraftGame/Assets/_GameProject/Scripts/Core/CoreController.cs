@@ -29,7 +29,7 @@ public abstract class CoreController : MonoBehaviour {
 		get { return state; }
 		set { 
 			state = value;
-			StateManager.ChangeState(state); 
+			StateManager.ChangeState(state);
 		}
 	}
 
@@ -160,6 +160,7 @@ public abstract class CoreController : MonoBehaviour {
 
 	public void UpdatePlayerOnServer() {
 		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
+			playerStatsManager.PlayerStats.Online = false;
 			playerStatsManager.PlayerStats.Save();
 		}
 	}

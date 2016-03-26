@@ -17,7 +17,7 @@ public class GameExample : MonoBehaviour {
 		playerStats.Load("clientToken", SystemInfo.deviceUniqueIdentifier, ResponseFromLoad);
 	}
 
-	void ResponseFromPersistence(DataLabObject response) {
+	/*void ResponseFromPersistence(DataLabObject response) {
 		DataLabResponse r = new DataLabResponse(response);
 
 		if("0".Equals(r.Code)) {
@@ -25,7 +25,7 @@ public class GameExample : MonoBehaviour {
 		}else {
 			Debug.LogError("Something went wrong!");
 		}
-	}
+	}*/
 
 	void ResponseFromLoad(DataLabObject response) {
 		foreach(var f in response.Fields) {
