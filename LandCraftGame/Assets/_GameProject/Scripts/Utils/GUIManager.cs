@@ -87,13 +87,13 @@ public class GUIManager : MonoBehaviour {
 		}
 	}
 
-	public void GoFromGamePlayToStageSelection() {
+	/*public void GoFromGamePlayToStageSelection() {
 		SoundManager.Instance.PlaySelector();
 
 		if(screenFader != null) {
 			screenFader.FadeOutFast(null, game.LoadGameStageSelection);
 		}
-	}
+	}*/
 
 	public void GoFromGameFreeModeToGameLobby() {
 		SoundManager.Instance.PlaySelector();
@@ -117,12 +117,12 @@ public class GUIManager : MonoBehaviour {
 		SetCrystals(crystals);
 	}
 
-	public void DoLobbyPlayLevelsButtonPress() {
+	/*public void DoLobbyPlayLevelsButtonPress() {
 		DoSimpleClickFadeLogics (
 			playLevelsBtn.GetComponent<UIButtonExtraBehaviour>().DoMyClick,
 			game.LoadGameStageSelection
 		);
-	}
+	}*/
 
 	public void DoLobbyPlayFreeModeButtonPress() {
 		DoSimpleClickFadeLogics (
@@ -224,14 +224,14 @@ public class GUIManager : MonoBehaviour {
 		noInternetConnection.gameObject.SetActive(true);
 	}
 
-	public void UpdateLevelStep(int givenSteps) {
+	/*public void UpdateLevelStep(int givenSteps) {
 		if(currentSteps != null) {
 			currentSteps.text = "" + WorldBehaviour.Instance.GamePlay.CurrentSteps;
 		}
 		if(stepManager != null) {
 			stepManager.GetComponent<Animator>().Play("Pulse");
 		}
-	}
+	}*/
 
 	public void ShowStageClearMessage() {
 		if(gameStateMessage != null) {

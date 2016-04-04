@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{7B802A66-021F-93E4-CC01-A2CA43E7DC9D}") = "GooglePlayTest", "Assembly-CSharp-firstpass.csproj", "{1431B9A4-E649-5B0B-22B7-BC48AABAA88D}"
+EndProject
+Project("{7B802A66-021F-93E4-CC01-A2CA43E7DC9D}") = "GooglePlayTest", "Assembly-CSharp.csproj", "{2C08508C-A1FB-EA11-EA92-E151C4F9CEA7}"
+EndProject
+Project("{7B802A66-021F-93E4-CC01-A2CA43E7DC9D}") = "GooglePlayTest", "Assembly-CSharp-Editor.csproj", "{D985ADEE-14C1-F096-E9FB-575B83F2A4C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1431B9A4-E649-5B0B-22B7-BC48AABAA88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1431B9A4-E649-5B0B-22B7-BC48AABAA88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1431B9A4-E649-5B0B-22B7-BC48AABAA88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1431B9A4-E649-5B0B-22B7-BC48AABAA88D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C08508C-A1FB-EA11-EA92-E151C4F9CEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C08508C-A1FB-EA11-EA92-E151C4F9CEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C08508C-A1FB-EA11-EA92-E151C4F9CEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C08508C-A1FB-EA11-EA92-E151C4F9CEA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D985ADEE-14C1-F096-E9FB-575B83F2A4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D985ADEE-14C1-F096-E9FB-575B83F2A4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D985ADEE-14C1-F096-E9FB-575B83F2A4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D985ADEE-14C1-F096-E9FB-575B83F2A4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

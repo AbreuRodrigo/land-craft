@@ -6,8 +6,7 @@ public class GUIManagerGameLobby : GUIManagerBase {
 	public static GUIManagerGameLobby Instance;
 
 	[Header("Buttons")]
-	public Button playLevelsBtn;
-	public Button playFreeModeBtn;
+	public Button playGameBtn;
 	public Button configBtn;
 	public Button storeBtn;
 	public Button inventoryBtn;
@@ -38,18 +37,18 @@ public class GUIManagerGameLobby : GUIManagerBase {
 		}
 	}
 
-	public void DoLobbyPlayLevelsButtonPress() {
+	/*public void DoLobbyPlayLevelsButtonPress() {
 		DisableGUIInteractionInvisibleTheme();
 
 		DoSimpleClickFadeLogics (
 			playLevelsBtn.GetComponent<UIButtonExtraBehaviour>().DoMyClick,
 			game.LoadGameModeSelection
 		);
-	}
+	}*/
 	
-	public void DoLobbyPlayFreeModeButtonPress() {
+	public void DoLobbyPlayGameButtonPress() {
 		DoSimpleClickFadeLogics (
-			playFreeModeBtn.GetComponent<UIButtonExtraBehaviour>().DoMyClick,
+			playGameBtn.GetComponent<UIButtonExtraBehaviour>().DoMyClick,
 			game.LoadGameFreeModeScene
 		);
 	}
@@ -123,6 +122,16 @@ public class GUIManagerGameLobby : GUIManagerBase {
 	public void DeductCrystals(int crystals) {
 		crystals -= int.Parse(this.crystals.text);
 		SetCrystals(crystals);
+	}
+
+	public void BuyItem(StoreItemType itemType, string itemName, string itemPrice) {
+		Debug.Log ("Event trigget by " + itemName + " with price: " + itemPrice);
+
+		if(itemType.Equals(StoreItemType.Spell)) {
+
+		}else if(itemType.Equals(StoreItemType.Spell)) {
+
+		}
 	}
 
 	protected override void StartMyStateUIEvent(GameState state) { }

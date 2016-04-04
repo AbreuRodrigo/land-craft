@@ -14,9 +14,9 @@ public class GameLobbyController : CoreController {
 	void Start() {
 		if(PlayerStatsManager != null) {
 			RetrieveCrystalsFromServer();
-			ValidateSharedOnFacebook();
-			ValidateSharedOnTwitter();
-			ValidateSharedOnGooglePlus();
+			//ValidateSharedOnFacebook();
+			//ValidateSharedOnTwitter();
+			//ValidateSharedOnGooglePlus();
 			ValidatePlayerName();
 			ValidatePlayerLevel();
 

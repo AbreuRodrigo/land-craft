@@ -6,12 +6,21 @@ public class ItemPanel : MonoBehaviour {
 
 	[SerializeField]
 	private Text itemName;
+
 	[SerializeField]
 	private Image itemImage;
+
 	[SerializeField]
 	private Text itemDescription;
+
 	[SerializeField]
 	private Text itemPrice;
+
+	[SerializeField]
+	private Image currencyImage;
+
+	[SerializeField]
+	private Button myButton;
 
 	public string ItemName {
 		get { return itemName.text; }
@@ -28,8 +37,22 @@ public class ItemPanel : MonoBehaviour {
 		set { itemDescription.text = value; }
 	}
 
-	public int ItemPrice {
-		get { return int.Parse(itemPrice.text); } 
-		set { itemPrice.text = value.ToString(); }
+	public string ItemPrice {
+		get { return itemPrice.text; }
+		set { itemPrice.text = value; }
+	}
+
+	public Image CurrencyImage { 
+		get { return currencyImage; } 
+		set { currencyImage = value; }
+	}
+
+	public Button MyButton {
+		get { return myButton; }
+		set { myButton = value; }
+	}
+
+	public void AddButtonEvent(StoreItemType type, string name, string price) {
+		MyButton.onClick.AddListener(() => GUIManagerGameLobby.Instance.BuyItem(type, name, price));
 	}
 }

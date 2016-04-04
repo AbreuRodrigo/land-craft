@@ -60,13 +60,13 @@ public abstract class GUIManagerBase : MonoBehaviour {
 		}
 	}
 	
-	public void GoToStageSelectionScene() {
+	/*public void GoToStageSelectionScene() {
 		SoundManager.Instance.PlaySelector();
 		
 		if(screenFader != null) {
 			screenFader.FadeOutFast(null, game.LoadGameStageSelection);
 		}
-	}
+	}*/
 	
 	public void GoToGameFreeModeScene() {
 		SoundManager.Instance.PlaySelector();

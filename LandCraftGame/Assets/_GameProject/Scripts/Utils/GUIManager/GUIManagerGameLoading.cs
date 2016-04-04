@@ -54,6 +54,12 @@ public class GUIManagerGameLoading : GUIManagerBase {
 		}
 	}
 
+	public void PlayRetryingTheConnectionMessage() {
+		if (topScreenMessage != null) {
+			topScreenMessage.PlayRetryingTheConnectionMessage();
+		}
+	}
+
 	private void DisableLogo() {
 		logo.enabled = false;
 		logo.gameObject.SetActive(false);

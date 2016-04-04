@@ -35,12 +35,12 @@ public class GUIManagerGameMode : GUIManagerBase {
 		);
 	}
 
-	public void PlayStagesButtonPress() {
+	/*public void PlayStagesButtonPress() {
 		DoSimpleClickFadeLogics (
 			playLevelsBtn.GetComponent<UIButtonExtraBehaviour>().DoMyClick,
 			game.LoadGameStageSelection
 		);
-	}
+	}*/
 	
 	public void PlayFreeModeButtonPress() {
 		DoSimpleClickFadeLogics (

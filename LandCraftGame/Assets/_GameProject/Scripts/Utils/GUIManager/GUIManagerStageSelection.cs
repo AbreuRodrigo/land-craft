@@ -19,9 +19,9 @@ public class GUIManagerStageSelection : GUIManagerBase {
 	
 	}
 
-	public void DoStageSelectionPress(int index) {
+	/*public void DoStageSelectionPress(int index) {
 		PlayerPrefsManager.ClickedStage = index;
 		
 		DoSimpleClickFadeLogics(null, game.LoadGamePlayScene);
-	}
+	}*/
 }

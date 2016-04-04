@@ -32,7 +32,7 @@ public class GameStageSelectionController : CoreController {
 	}
 
 	private void LoadClickedLevel(int index) {
-		GUIManagerStageSelection.Instance.DoStageSelectionPress(index);
+		//GUIManagerStageSelection.Instance.DoStageSelectionPress(index);
 		currentStage = index;
 	}
 

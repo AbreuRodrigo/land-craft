@@ -3,32 +3,48 @@ using System.Collections;
 
 public class GameLoadingController : CoreController {
 
-	public int takingLonderToLoad = 7;
+	public int takingLongerToLoad = 10;
 	public int limitCouldNotLoad = 20;
+	public int limitRetry = 25;
 
 	private bool couldNotConnect;
 	private bool showedTakingLongerMessage;
+	private bool retried;
+
+	private DataLab.DataLabManager dataLabManager;
 
 	void Awake() {
 		base.Awake();
 	}
 
-	void Start() {	
+	void Start() {
+		InitializeComponents();
+
 		StartCoroutine(StartLoading());
 	}
 
 	IEnumerator StartLoading() {
+		float startLoadingTime = Time.time;
+
 		if (!NetworkManager.Instance.HasInternetConnection()) {
 			GUIManagerGameLoading.Instance.ShowNoInternetConnectionMessage();
-		} else {			
-			while(!DataLab.DataLabManager.Instance.HasLoaded) {
-				if(Time.time >= takingLonderToLoad && !showedTakingLongerMessage) {
+		} else {
+			while(dataLabManager == null || !dataLabManager.HasLoaded) {
+				if(GetDeltaTime(startLoadingTime) >= takingLongerToLoad && !showedTakingLongerMessage) {
 					showedTakingLongerMessage = true;
 					GUIManagerGameLoading.Instance.PlayTakingLongerMessage();
 				}
-				if(Time.time > limitCouldNotLoad) {
+				if(GetDeltaTime(startLoadingTime) > limitCouldNotLoad) {
 					couldNotConnect = true;
 					GUIManagerGameLoading.Instance.PlayCouldNotConnectMessage();
+				}
+				if(GetDeltaTime(startLoadingTime) > limitRetry && !retried) {
+					InitializeComponents();
+					retried = true;
+					startLoadingTime = Time.time;
+					showedTakingLongerMessage = false;
+					couldNotConnect = false;
+					GUIManagerGameLoading.Instance.PlayRetryingTheConnectionMessage();
 				}
 
 				yield return null;
@@ -46,5 +62,11 @@ public class GameLoadingController : CoreController {
 		}
 	}
 
-	protected override void InitializeComponents() { }
+	private float GetDeltaTime(float initial) {
+		return Time.time - initial;
+	}
+
+	protected override void InitializeComponents() { 
+		dataLabManager = DataLab.DataLabManager.Instance;
+	}
 }

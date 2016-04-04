@@ -93,29 +93,29 @@ public abstract class CoreController : MonoBehaviour {
 
 	protected abstract void InitializeComponents();
 
-	public void LoadGamePlayScene() {
-		LoadGameScene("gamePlay");
-	}
-
-	public void LoadGameFreeModeScene() {
-		LoadGameScene("gameFreeMode");
-	}
-
 	public void LoadGameLobby() {
 		LoadGameScene("gameLobby");
-	}
-
-	public void LoadGameStageSelection() {
-		LoadGameScene("gameStageSelection");
 	}
 
 	public void LoadGameLoading() {
 		LoadGameScene("gameLoading");
 	}
 
-	public void LoadGameModeSelection() {
-		LoadGameScene("gameModeSelection");
+	public void LoadGameFreeModeScene() {
+		LoadGameScene("gameFreeMode");
 	}
+
+	/*public void LoadGamePlayScene() {
+		LoadGameScene("gamePlay");
+	}*/
+
+	/*public void LoadGameStageSelection() {
+		LoadGameScene("gameStageSelection");
+	}*/
+
+	/*public void LoadGameModeSelection() {
+		LoadGameScene("gameModeSelection");
+	}*/
 
 	public void LoadGameScene(string scene) {
 		StartCoroutine(LoadSceneInSeconds(scene));
