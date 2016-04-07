@@ -3,7 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 using OnePF;
 
-public class OpenIABStore : MonoBehaviour {	
+public class OpenIABStore : MonoBehaviour {
+
+	public Text crystals;
+	public Text iabStatus;
+
 	private const string _100_CRYSTALS_PACK = "100_crystals_pack";
 	private const string _500_CRYSTALS_PACK = "500_crystals_pack";
 	private const string _1000_CRYSTALS_PACK = "1000_crystals_pack";
@@ -25,17 +29,12 @@ public class OpenIABStore : MonoBehaviour {
 	}
 
 	public void ConnectToStore() {
-		OpenIAB.mapSku(_100_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "100_crystals_pack");
-		OpenIAB.mapSku(_500_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "500_crystals_pack");
-		OpenIAB.mapSku(_1000_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "1000_crystals_pack");
-		OpenIAB.mapSku(_5000_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "5000_crystals_pack");
-		OpenIAB.mapSku(_10000_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "10000_crystals_pack");
+		SKUMapping();
 
 		Options options = new Options();
 		options.checkInventory = true;
 		options.verifyMode = OptionsVerifyMode.VERIFY_EVERYTHING;
 		options.storeKeys.Add(OpenIAB_Android.STORE_GOOGLE, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAordhGvQqC71rek6CUuipXLkb1L+LowHXl0y9F/FVw+IdiO3kT0h9wss8e9xLmVio5/k/pV8u7Bg5zQWGMcY9b7g+t8E8+3BMDAbWJGOgvIvuRIJzy4eJjvzcFced5ziybtAl4B5UFGxP9G2+h2lPqVwqhJ/zdD1Mk/FO3sg/230ZVFa8GTG2w9NCU5pgyKy9SkR8vV2fPJCcIlYmF4s+KJKwCJ5y6wnLNc+Q/BYbnVuD9lhD7GnV8Mjdh4h+/989LT5wtTVmkYrWUZkFxJj6lfecUieFwyg440irW3546/OoSCUWlF+j3NH4BWRP3Mk5AHMef/ktoXtpVllN4mxgVQIDAQAB");
-
 		OpenIAB.init(options);
 	}
 
@@ -54,12 +53,14 @@ public class OpenIABStore : MonoBehaviour {
 	}
 
 	void OnBillingSupported() {
-		//After conneting to the store
+		iabStatus.color = Color.green;
+		iabStatus.text = "Connected to the store!";
 		OpenIAB.queryInventory();
 	}
 
 	void OnBillingNotSupported(string error) {
-		//Called on failed to connect to the store
+		iabStatus.color = Color.red;
+		iabStatus.text = "Could not to the store!";
 	}
 
 	void OnQueryInventorySucceeded(Inventory inventory) {
@@ -69,16 +70,18 @@ public class OpenIABStore : MonoBehaviour {
 	}
 
 	void OnPurchaseSucceded(Purchase purchase) {
-		OpenIAB.consumeProduct(purchase);
+		if(purchase.Sku.Equals(_100_CRYSTALS_PACK)) {
+			OpenIAB.consumeProduct(purchase);
+
+			int value = int.Parse(crystals.text);
+			crystals.text = "Crystals: " + (value + 100);
+		}
 	}
 
 	void OnPurchaseFailed(int errorCode, string error) {
 	}
 
 	void OnConsumePurchaseSucceeded(Purchase purchase) {
-		if(purchase.Sku.Equals(_100_CRYSTALS_PACK)) {
-			//Add crystals to the amount of the player's crystals
-		}
 	}
 
 	void OnConsumePurchaseFailed(string error) {
@@ -93,25 +96,15 @@ public class OpenIABStore : MonoBehaviour {
 	void OnRestoreFailed(string error) {
 	}
 
-	//PURCHASING METHODES
-
 	public void Purchase100CrystalsPack() {
 		OpenIAB.purchaseProduct(_100_CRYSTALS_PACK);
 	}
 
-	public void Purchase500CrystalsPack() {
-		OpenIAB.purchaseProduct(_500_CRYSTALS_PACK);
-	}
-
-	public void Purchase1000CrystalsPack() {
-		OpenIAB.purchaseProduct(_1000_CRYSTALS_PACK);
-	}
-
-	public void Purchase5000CrystalsPack() {
-		OpenIAB.purchaseProduct(_500_CRYSTALS_PACK);
-	}
-
-	public void Purchase10000CrystalsPack() {
-		OpenIAB.purchaseProduct(_10000_CRYSTALS_PACK);
+	private void SKUMapping() {
+		OpenIAB.mapSku(_100_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "100_crystals_pack");
+		OpenIAB.mapSku(_500_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "500_crystals_pack");
+		OpenIAB.mapSku(_1000_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "1000_crystals_pack");
+		OpenIAB.mapSku(_5000_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "5000_crystals_pack");
+		OpenIAB.mapSku(_10000_CRYSTALS_PACK, OpenIAB_Android.STORE_GOOGLE, "10000_crystals_pack");
 	}
 }

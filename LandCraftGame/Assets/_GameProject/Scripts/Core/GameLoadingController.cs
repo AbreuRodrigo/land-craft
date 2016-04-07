@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Analytics;
+using UnityEngine.SocialPlatforms;
 
 public class GameLoadingController : CoreController {
 
@@ -18,6 +20,8 @@ public class GameLoadingController : CoreController {
 	}
 
 	void Start() {
+		//ConnectToGoogle();
+
 		InitializeComponents();
 
 		StartCoroutine(StartLoading());
@@ -64,6 +68,13 @@ public class GameLoadingController : CoreController {
 
 	private float GetDeltaTime(float initial) {
 		return Time.time - initial;
+	}
+
+	private void ConnectToGoogle() {
+		GooglePlayGames.PlayGamesPlatform.Activate();
+
+		Social.localUser.Authenticate((bool success) => {
+		});
 	}
 
 	protected override void InitializeComponents() { 

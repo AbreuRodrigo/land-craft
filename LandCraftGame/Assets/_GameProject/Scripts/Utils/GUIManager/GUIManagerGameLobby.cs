@@ -129,7 +129,7 @@ public class GUIManagerGameLobby : GUIManagerBase {
 
 		if(itemType.Equals(StoreItemType.Spell)) {
 
-		}else if(itemType.Equals(StoreItemType.Spell)) {
+		}else if(itemType.Equals(StoreItemType.Currency)) {
 
 		}
 	}

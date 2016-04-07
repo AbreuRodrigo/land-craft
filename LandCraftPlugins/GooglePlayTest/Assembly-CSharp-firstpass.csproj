@@ -67,7 +67,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="OpenIAB_W8Plugin">
- <HintPath>E:/GamesOnGoing/GooglePlayTest/Assets/Plugins/OpenIAB_W8Plugin.dll</HintPath>
+ <HintPath>E:/GamesOnGoing/LandCraft/LandCraftPlugins/GooglePlayTest/Assets/Plugins/OpenIAB_W8Plugin.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -101,8 +101,11 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="JarResolverLib">
+ <HintPath>E:/GamesOnGoing/LandCraft/LandCraftPlugins/GooglePlayTest/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ </Reference>
  <Reference Include="OpenIAB_W8Plugin">
- <HintPath>E:/GamesOnGoing/GooglePlayTest/Assets/Plugins/OpenIAB_W8Plugin.dll</HintPath>
+ <HintPath>E:/GamesOnGoing/LandCraft/LandCraftPlugins/GooglePlayTest/Assets/Plugins/OpenIAB_W8Plugin.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -115,9 +118,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="JarResolverLib">
- <HintPath>E:/GamesOnGoing/GooglePlayTest/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

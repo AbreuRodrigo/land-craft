@@ -25,6 +25,10 @@ namespace LandCraft
 {
 public static class GPGSIDs
 {
+        public const string achievement_conquista2 = "CgkI7t-Z_qgGEAIQAg"; // <GPGSID>
+        public const string achievement_conquista3 = "CgkI7t-Z_qgGEAIQAw"; // <GPGSID>
+        public const string achievement_conquista4 = "CgkI7t-Z_qgGEAIQBA"; // <GPGSID>
+        public const string achievement_conquista5 = "CgkI7t-Z_qgGEAIQBQ"; // <GPGSID>
         public const string achievement_conquista1 = "CgkI7t-Z_qgGEAIQAA"; // <GPGSID>
 
 }

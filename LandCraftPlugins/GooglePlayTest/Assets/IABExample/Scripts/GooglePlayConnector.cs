@@ -8,7 +8,7 @@ public class GooglePlayConnector : MonoBehaviour {
 	public Text connectionStatus;
 
 	void Start() {
-		ConnectToGoogle();
+		//ConnectToGoogle();
 	}
 
 	public void ConnectToGoogle() {
