@@ -10,7 +10,6 @@ public abstract class GUIManagerBase : MonoBehaviour {
 	[Header("BaseComponents")]
 	public CoreController game;
 	public ScreenFader screenFader;
-	public ScreenFilter screenFilter;
 	public Image interactionBlocker;
 
 	protected virtual void Start() {
@@ -34,20 +33,6 @@ public abstract class GUIManagerBase : MonoBehaviour {
 		}
 	}
 
-	public void ShowScreenFilter() {
-		if(screenFilter != null) {
-			screenFilter.gameObject.SetActive(true);
-			screenFilter.Show();
-		}
-	}
-	
-	public void HideScreenFilter() {
-		if(screenFilter != null) { 
-			screenFilter.Hide ();
-			screenFilter.gameObject.SetActive (false);
-		}
-	}
-
 	public void DoPlainButtonPress() {
 		SoundManager.Instance.PlaySelector();
 	}
@@ -59,15 +44,7 @@ public abstract class GUIManagerBase : MonoBehaviour {
 			screenFader.FadeOutFast(null, game.LoadGameLobby);
 		}
 	}
-	
-	/*public void GoToStageSelectionScene() {
-		SoundManager.Instance.PlaySelector();
-		
-		if(screenFader != null) {
-			screenFader.FadeOutFast(null, game.LoadGameStageSelection);
-		}
-	}*/
-	
+
 	public void GoToGameFreeModeScene() {
 		SoundManager.Instance.PlaySelector();
 		

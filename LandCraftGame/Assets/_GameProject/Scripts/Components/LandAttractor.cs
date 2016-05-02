@@ -4,26 +4,22 @@ using System.Collections;
 public class LandAttractor : MonoBehaviour {
 
 	public void DoAttractionLogics(LandBehaviour land) {
-		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState ||
-		   WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode) {
-			if(!land.isFinalType) {
-				TestNeighborsAttractionByType(land);
-				
-				if(land.CausedAttraction) {
-					if(!land.IsUpgrading) {
-						EndAttraction(land);
-						land.UpgradeToNextType();
-					}
-				}else {
-					WorldBehaviour.Instance.RemoveLandEvent();
+		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState) {			
+			TestNeighborsAttractionByType (land);
+			
+			if (land.CausedAttraction) {
+				if (!land.IsUpgrading) {
+					EndAttraction (land);
+					land.UpgradeToNextType ();
 				}
+			} else {
+				WorldBehaviour.Instance.RemoveLandEvent ();
 			}
 		}
 	}
 
 	private void DoMyAttractionMove(LandBehaviour other, Vector3 targetPosition) {
-		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState ||
-		    WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode) {
+		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState) {
 			if (!other.InAttractionProcess && !other.CausedAttraction) {
 				other.InAttractionProcess = true;
 				StartCoroutine(StartMyAttractionProcess(other, targetPosition));
@@ -32,8 +28,7 @@ public class LandAttractor : MonoBehaviour {
 	}
 
 	private void EndAttraction(LandBehaviour land) {
-		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState || 
-		   WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode) {
+		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState) {
 			StartCoroutine(EndLandAttractionRoutine(land));
 		}
 	}
@@ -46,8 +41,7 @@ public class LandAttractor : MonoBehaviour {
 	}
 
 	private void TestTypeAttraction(LandBehaviour land, LandBehaviour other) {
-		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState ||
-		   WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode) {
+		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState) {
 			if (other != null && !other.InAttractionProcess && !other.CausedAttraction && land.type.Equals(other.type)) {
 				land.CausedAttraction = true;
 				DoMyAttractionMove(other, land.transform.position);
@@ -56,8 +50,7 @@ public class LandAttractor : MonoBehaviour {
 	}
 
 	private void TestNeighborsAttractionByType(LandBehaviour land) {
-		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState ||
-		   WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode) {
+		if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState) {
 			TestTypeAttraction(land, RetrieveLandAtCell(land.MyCell.Left));
 			TestTypeAttraction(land, RetrieveLandAtCell(land.MyCell.Right));
 			TestTypeAttraction(land, RetrieveLandAtCell(land.MyCell.Back));
@@ -96,6 +89,8 @@ public class LandAttractor : MonoBehaviour {
 				other.MyCell.gameObject.SetActive(true);
 				other.MyCell.MyLand = null;
 				other.MyCell.Value = 0;
+
+				WorldBehaviour.Instance.UpdateGridSetupStatsForPersistence(other.MyCell.index, 0);
 			}
 
 			Destroy(other.gameObject, 0.2f);

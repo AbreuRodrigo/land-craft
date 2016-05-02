@@ -32,7 +32,7 @@ public class CellBehaviour : IsometricObject {
 		get { return right; } 
 	}
 
-	void Start() {
+	void Awake() {
 		this.InitializeNeighbors();
 	}
 

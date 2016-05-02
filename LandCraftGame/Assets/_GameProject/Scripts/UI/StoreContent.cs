@@ -32,7 +32,7 @@ public class StoreContent : MonoBehaviour {
 	public void AddNewItem(string name, string description, string price, Sprite image, Sprite currency, StoreItemType type, int index, float x, float y) {
 		if(content) {
 			GameObject itemObject = (GameObject) Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-			itemObject.transform.parent = content.transform;
+			itemObject.transform.SetParent(content.transform);
 
 			ItemPanel itemPanel = itemObject.GetComponent<ItemPanel>();
 			itemPanel.ItemName = name;

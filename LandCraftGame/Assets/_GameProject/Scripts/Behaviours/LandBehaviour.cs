@@ -55,6 +55,8 @@ public class LandBehaviour : IsometricObject {
 			this.hasResource = false;
 			this.selectedToHarvest = false;
 			this.isFinalType = false;
+
+			WorldBehaviour.Instance.UpdateGridSetupStatsForPersistence (this.MyCell.index, (int)this.type);		
 		}
 	}
 		
@@ -114,9 +116,7 @@ public class LandBehaviour : IsometricObject {
 			WorldBehaviour.Instance.ResetCellFromMyGridByIndex(this.MyCell.Right);
 		}
 
-		WorldBehaviour.Instance.LandInstantiator.InstantiateLand (
-			nextType, transform.position, this.MyCell, IsUpgrading, WorldBehaviour.Instance.TestCriterias
-		);
+		WorldBehaviour.Instance.LandInstantiator.InstantiateLand (nextType, transform.position, this.MyCell, IsUpgrading, null);
 
 		if (PlayerExperienceManager.Instance != null) {
 			PlayerExperienceManager.Instance.GiveXpToPlayer(nextType);

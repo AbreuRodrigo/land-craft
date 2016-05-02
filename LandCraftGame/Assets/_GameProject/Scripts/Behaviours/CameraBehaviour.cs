@@ -3,20 +3,12 @@ using System.Collections;
 using UnityStandardAssets.ImageEffects;
 
 public class CameraBehaviour : MonoBehaviour {
-	public Animator myAnimator;
-	public VignetteAndChromaticAberration vignetteFX;
-	public ColorCorrectionCurves colorCorrectionFX;
-
 	private const float ZOOM_MIN = 2.0f;
 	private const float ZOOM_MAX = 5.0f;
 
 	private float zoomPace = 0.25f;
 
 	void Awake() {
-		if(myAnimator == null) {
-			myAnimator = GetComponent<Animator>();
-		}
-
 #if UNITY_ANDROID		
 		zoomPace = 0.05f;
 #endif
@@ -75,54 +67,5 @@ public class CameraBehaviour : MonoBehaviour {
 				Camera.main.orthographicSize = ZOOM_MAX;
 			}
 		}
-	}
-
-	public void TurnOnBlackAndWhite() {
-		StartCoroutine(TurnOnBlackAndWhiteRoutine());
-	}
-
-	public void FadeScreenOut() {
-		StartCoroutine(FadeScreenOutRoutine());
-	}
-
-	public void VisualizeMyView() {
-		if(myAnimator != null) {
-			myAnimator.Play ("VisualizeMyView");
-		}
-	}
-	
-	public void VisualizeOtherView() {
-		if(myAnimator != null) {
-			myAnimator.Play ("VisualizeOtherView");
-		}
-	}
-
-	IEnumerator TurnOnBlackAndWhiteRoutine() {
-		if(myAnimator != null) {
-			myAnimator.enabled = false;
-		}
-		
-		while(colorCorrectionFX.saturation > 0) {
-			yield return new WaitForSeconds(0.01f);			
-			colorCorrectionFX.saturation -= 0.01f;
-		}
-				
-		StopCoroutine(TurnOnBlackAndWhiteRoutine());
-	}
-
-	IEnumerator FadeScreenOutRoutine() {
-		if(myAnimator != null) {
-			myAnimator.enabled = false;
-		}
-
-		while(vignetteFX.intensity < 250) {
-			yield return new WaitForSeconds(0.0001f);
-
-			vignetteFX.intensity += 5;
-		}
-
-		vignetteFX.intensity = 100000;
-
-		StopCoroutine(FadeScreenOutRoutine());
 	}
 }

@@ -7,26 +7,35 @@ public class PlayerStatsManager : ServerObjectManager {
 
 	public bool HasLoaded { get; set; }
 
+	private bool hasTriedLoading;
+
 	public PlayerStats PlayerStats {
 		get{ return playerStats; }
 		set{ this.playerStats = value; }
 	}
 
 	void Start() {
-		if (!HasLoaded) {
-			playerStats = new PlayerStats ();
-			LoadStats(playerStats);
-		}
+		TryLoadingData ();
 	}
 
 	protected override void LoadResponse(DataLabObject dataObject) {
 		if (dataObject != null) {
+			if(dataObject.HasErrorMessage()) {
+				HasLoaded = false;
+				return;
+			}
 			playerStats.ConvertObjectToServerObject (dataObject);
+			HasLoaded = true;
 		} else {
 			playerStats.Save ();
 		}
+	}
 
-		HasLoaded = true;
+	private void TryLoadingData() {
+		if (!HasLoaded) {
+			playerStats = new PlayerStats ();
+			LoadStats(playerStats);
+		}
 	}
 
 	protected override void LoadResponseList(List<DataLabObject> dataObjectList) { }

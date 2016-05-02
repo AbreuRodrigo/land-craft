@@ -28,29 +28,9 @@ public class StateManager {
 	public void ChangeToGameMenuState() {
 		ChangeState(GameState.GameMenu);
 	}
-	
-	public void ChangeToStageSelectionState() {
-		ChangeState(GameState.StageSelection);
-	}
-	
+
 	public void ChangeToGamePlayState() {
 		ChangeState(GameState.GamePlay);
-	}
-
-	public void ChangeToGameFreeMode() {
-		ChangeState(GameState.GameFreeMode);
-	}
-	
-	public void ChangeToPauseState() {
-		ChangeState(GameState.Pause);
-	}
-	
-	public void ChangeToGameOverState() {
-		ChangeState(GameState.GameOver);
-	}
-
-	public void ChangeToStageClearedState() {
-		ChangeState(GameState.StageCleared);
 	}
 		
 	public bool IsThisState(GameState s) {
@@ -69,45 +49,9 @@ public class StateManager {
 		}
 	}
 
-	public bool IsStageSelectionState {
-		get {
-			return IsThisState(GameState.StageSelection);
-		}
-	}
-	
 	public bool IsGamePlayState {
 		get {
 			return IsThisState(GameState.GamePlay);
-		}
-	}
-
-	public bool IsGameFreeMode {
-		get {
-			return IsThisState(GameState.GameFreeMode);
-		}
-	}
-
-	public bool IsPauseState {
-		get {
-			return IsThisState(GameState.Pause);
-		}
-	}
-
-	public bool IsGameStageGoalState {
-		get {
-			return IsThisState(GameState.GameStageGoal);
-		}
-	}
-	
-	public bool IsGameOverState {
-		get {
-			return IsThisState(GameState.GameOver);
-		}
-	}
-
-	public bool IsStageClearedState {
-		get {
-			return IsThisState(GameState.StageCleared);
 		}
 	}
 }

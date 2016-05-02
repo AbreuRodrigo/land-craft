@@ -1,0 +1,565 @@
+fileFormatVersion: 2
+guid: 8baf8a03568a9594c83221490928a32a
+timeCreated: 1461917914
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: land1
+    21300002: land2
+    21300004: cloud1
+    21300006: cloud2
+    21300008: land3
+    21300010: land4
+    21300012: playerTextArea
+    21300014: land5
+    21300016: cardBody
+    21300018: playerTextGlobe
+    21300020: cardDescription
+    21300022: moneyIcon
+    21300024: crystalIcon
+    21300026: cardBuyButton
+    21300028: cardIconBord
+    21300030: crystalPack1
+    21300032: crystalPack2
+    21300034: crystalPack3
+    21300036: crystalPack4
+    21300038: crystalPack5
+    21300040: cardIcon1
+    21300042: cardIcon3
+    21300044: cardIcon5
+    21300046: cardIcon2
+    21300048: cardIcon4
+    21300050: cardIcon6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: land1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 888
+        width: 41
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 54.5}
+        - {x: -20.5, y: 45.5}
+        - {x: -20.5, y: -14.5}
+        - {x: -19.5, y: -23.5}
+        - {x: -11.5, y: -50.5}
+        - {x: -4.5, y: -54.5}
+        - {x: 10.5, y: -54.5}
+        - {x: 20.5, y: -47.5}
+        - {x: 20.5, y: 48.5}
+        - {x: 13.5, y: 54.5}
+    - name: land2
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 847
+        width: 115
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 75}
+        - {x: -18.5, y: 65}
+        - {x: -21.5, y: 62}
+        - {x: -19.5, y: 60}
+        - {x: -22.5, y: 63}
+        - {x: -25.5, y: 72}
+        - {x: -28.5, y: 75}
+        - {x: -51.5, y: 75}
+        - {x: -57.5, y: 59}
+        - {x: -57.5, y: -56}
+        - {x: -35.5, y: -75}
+        - {x: 24.5, y: -75}
+        - {x: 57.5, y: 9}
+        - {x: 57.5, y: 65}
+        - {x: 53.5, y: 75}
+    - name: cloud1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 924
+        width: 225
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29.5, y: 46.5}
+        - {x: -29.5, y: 46.5}
+        - {x: -41.5, y: 44.5}
+        - {x: -112.5, y: -3.5}
+        - {x: -112.5, y: -33.5}
+        - {x: -83.5, y: -46.5}
+        - {x: 53.5, y: -46.5}
+        - {x: 112.5, y: -36.5}
+        - {x: 112.5, y: 9.5}
+        - {x: 105.5, y: 12.5}
+    - name: cloud2
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 925
+        width: 256
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 107, y: 45}
+        - {x: -33, y: 45}
+        - {x: -128, y: 14}
+        - {x: -128, y: -45}
+        - {x: 113, y: -45}
+        - {x: 127, y: -42}
+        - {x: 128, y: -39}
+        - {x: 128, y: -8}
+    - name: land3
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 709
+        width: 87
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: 82.5}
+        - {x: -39.5, y: 82.5}
+        - {x: -43.5, y: 69.5}
+        - {x: -43.5, y: 3.5}
+        - {x: -22.5, y: -70.5}
+        - {x: -9.5, y: -82.5}
+        - {x: 11.5, y: -82.5}
+        - {x: 41.5, y: -20.5}
+        - {x: 43.5, y: -7.5}
+        - {x: 43.5, y: 49.5}
+    - name: land4
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 706
+        width: 103
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14.5, y: 70}
+        - {x: -31.5, y: 70}
+        - {x: -51.5, y: 51}
+        - {x: -51.5, y: 17}
+        - {x: -21.5, y: -65}
+        - {x: -10.5, y: -70}
+        - {x: 11.5, y: -70}
+        - {x: 45.5, y: 6}
+        - {x: 51.5, y: 37}
+        - {x: 51.5, y: 51}
+    - name: playerTextArea
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 737
+        width: 467
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 195.5, y: -19}
+        - {x: 201.5, y: -18}
+        - {x: 220.5, y: -12}
+        - {x: 233.5, y: 4}
+        - {x: 233.5, y: 46}
+        - {x: 230.5, y: 58}
+        - {x: 210.5, y: 70}
+        - {x: -185.5, y: 70}
+        - {x: -207.5, y: 65}
+        - {x: -233.5, y: 30}
+        - {x: -233.5, y: -26}
+        - {x: -225.5, y: -42}
+        - {x: -205.5, y: -62}
+        - {x: -189.5, y: -70}
+        - {x: -139.5, y: -70}
+        - {x: -134.5, y: -69}
+        - {x: -120.5, y: -65}
+        - {x: -91.5, y: -25}
+        - {x: -94.5, y: -19}
+    - name: land5
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 414
+        width: 325
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97.5, y: 133.5}
+        - {x: 86.5, y: 141.5}
+        - {x: 29.5, y: 141.5}
+        - {x: -33.5, y: 117.5}
+        - {x: -81.5, y: 116.5}
+        - {x: -94.5, y: 126.5}
+        - {x: -99.5, y: 127.5}
+        - {x: -103.5, y: 101.5}
+        - {x: -149.5, y: 92.5}
+        - {x: -162.5, y: 85.5}
+        - {x: -162.5, y: 67.5}
+        - {x: -147.5, y: 28.5}
+        - {x: -111.5, y: -42.5}
+        - {x: -76.5, y: -75.5}
+        - {x: -17.5, y: -82.5}
+        - {x: -11.5, y: -89.5}
+        - {x: 17.5, y: -141.5}
+        - {x: 51.5, y: -141.5}
+        - {x: 119.5, y: -1.5}
+        - {x: 162.5, y: 54.5}
+        - {x: 162.5, y: 88.5}
+    - name: cardBody
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 142
+        width: 129
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -61.5, y: 138}
+        - {x: -64.5, y: 135}
+        - {x: -64.5, y: -135}
+        - {x: -61.5, y: -138}
+        - {x: 64.5, y: -138}
+        - {x: 64.5, y: 138}
+    - name: playerTextGlobe
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 236
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: 64}
+        - {x: -64, y: 43}
+        - {x: -64, y: -58}
+        - {x: -47, y: -64}
+        - {x: 40, y: -64}
+        - {x: 64, y: -37}
+        - {x: 64, y: 35}
+        - {x: 56, y: 64}
+    - name: cardDescription
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 145
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60, y: 58}
+        - {x: -60, y: -60}
+        - {x: 60, y: -60}
+        - {x: 60, y: 60}
+        - {x: -59, y: 60}
+    - name: moneyIcon
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 153
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 32}
+        - {x: -21, y: 20}
+        - {x: -21, y: -28}
+        - {x: -12, y: -32}
+        - {x: 15, y: -32}
+        - {x: 21, y: -23}
+        - {x: 21, y: 22}
+        - {x: 10, y: 32}
+    - name: crystalIcon
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 156
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: -27}
+        - {x: 19, y: -27}
+        - {x: 27, y: -25}
+        - {x: 27, y: 15}
+        - {x: 24, y: 22}
+        - {x: 2, y: 27}
+        - {x: -18, y: 27}
+        - {x: -27, y: 5}
+    - name: cardBuyButton
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 146
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 32}
+        - {x: -64, y: -32}
+        - {x: 60, y: -32}
+        - {x: 64, y: -29}
+        - {x: 64, y: 29}
+        - {x: 61, y: 32}
+    - name: cardIconBord
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 147
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: 36}
+        - {x: -36, y: -36}
+        - {x: 36, y: -36}
+        - {x: 36, y: 36}
+      - - {x: -31, y: 31}
+        - {x: 31, y: 31}
+        - {x: 31, y: -31}
+        - {x: -31, y: -31}
+    - name: crystalPack1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 6
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 64}
+        - {x: -64, y: -64}
+        - {x: 64, y: -64}
+        - {x: 64, y: 64}
+    - name: crystalPack2
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 6
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 64}
+        - {x: -64, y: -64}
+        - {x: 64, y: -64}
+        - {x: 64, y: 64}
+    - name: crystalPack3
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 6
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 64}
+        - {x: -64, y: -64}
+        - {x: 64, y: -64}
+        - {x: 64, y: 64}
+    - name: crystalPack4
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 6
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 64}
+        - {x: -64, y: -64}
+        - {x: 64, y: -64}
+        - {x: 64, y: 64}
+    - name: crystalPack5
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 6
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 64}
+        - {x: -64, y: -64}
+        - {x: 64, y: -64}
+        - {x: 64, y: 64}
+    - name: cardIcon1
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 76
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: cardIcon3
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 76
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: cardIcon5
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 76
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: cardIcon2
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 6
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: cardIcon4
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 6
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: cardIcon6
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 6
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

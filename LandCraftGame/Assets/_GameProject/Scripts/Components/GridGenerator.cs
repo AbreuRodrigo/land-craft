@@ -24,7 +24,7 @@ public class GridGenerator : MonoBehaviour {
 	private GameObject myViewGrid;
 	private GameObject otherViewGrid;
 
-	void Start() {
+	void Awake() {
 		if(gridSizeByCurrentStage) {
 			DefineGridForGamePlay();
 		} else {

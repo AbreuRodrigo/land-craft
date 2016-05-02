@@ -38,26 +38,26 @@ public class StoreItemManager : ServerObjectManager {
 	}
 
 	protected override void LoadResponseList(List<DataLabObject> dataObjectList) {
-		if(dataObjectList != null && dataObjectList.Count > 0) {
-			foreach (DataLabObject o in dataObjectList) {
+		if (dataObjectList != null && dataObjectList.Count > 0) {
+			foreach (DataLabObject o in dataObjectList) {			
 				StoreItemView item = new StoreItemView ();
 
-				StoreIcon image = (StoreIcon) System.Enum.Parse(typeof(StoreIcon), o.GetString("image"), true);
-				StoreItemType type = (StoreItemType) System.Enum.Parse(typeof(StoreItemType), o.GetString("type"), true);
+				StoreIcon image = (StoreIcon)System.Enum.Parse (typeof(StoreIcon), o.GetString ("image"), true);
+				StoreItemType type = (StoreItemType)System.Enum.Parse (typeof(StoreItemType), o.GetString ("type"), true);
 
-				item.Name = o.GetString("name");
-				item.Description = o.GetString("description");
-				item.Price = o.GetString("price");
-				item.Image = icons[image];
-				item.Type = o.GetString("type");
+				item.Name = o.GetString ("name");
+				item.Description = o.GetString ("description");
+				item.Price = o.GetString ("price");
+				item.Image = icons [image];
+				item.Type = o.GetString ("type");
 
-				if(StoreItemType.Spell == type) {
+				if (StoreItemType.Spell == type) {
 					SpellCount++;
-				}else if(StoreItemType.Currency == type) {
+				} else if (StoreItemType.Currency == type) {
 					CurrencyCount++;
 				}
 
-				Items.Add(item);
+				Items.Add (item);
 			}
 		}
 	}

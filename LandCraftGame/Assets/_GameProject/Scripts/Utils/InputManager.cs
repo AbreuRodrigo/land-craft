@@ -27,7 +27,7 @@ public class InputManager : MonoBehaviour {
 
 	//LOGICS
 	private void InputLogics() {
-		if((IsGamePlayState() || IsGameFreeMode()) && IsMyGameView()) {
+		if(IsGamePlayState()) {
 			if(Application.platform.Equals(RuntimePlatform.WindowsEditor)) {
 				if(Input.GetMouseButtonDown(0)) {
 					InputSelectionLogicsByPoint(Input.mousePosition);
@@ -53,7 +53,7 @@ public class InputManager : MonoBehaviour {
 			if(targetIsoObj != null) { 
 				if(targetIsoObj.isoType.Equals(IsoType.Cell)) {
 					DoInputSelectionLogicsByPointForCell(targetIsoObj);
-				} else if(WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode && targetIsoObj.isoType.Equals(IsoType.Land)) {
+				} else if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState && targetIsoObj.isoType.Equals(IsoType.Land)) {
 					DoInputSelectionLogicsByPointForLand(targetIsoObj);
 				}
 			}
@@ -138,13 +138,7 @@ public class InputManager : MonoBehaviour {
 		   !WorldBehaviour.Instance.HasLandEventsOnGoing()) {
 			Selector.Hide();
 
-			WorldBehaviour.Instance.LandInstantiator.InstantiateWasteLand (
-				SelectedCell.transform.position, SelectedCell, false, WorldBehaviour.Instance.TestCriterias
-			);
-
-			if(WorldBehaviour.Instance.Game.StateManager.IsGamePlayState) {
-				WorldBehaviour.Instance.GamePlay.StageStapForward();
-			}
+			WorldBehaviour.Instance.LandInstantiator.InstantiateWasteLand (	SelectedCell.transform.position, SelectedCell, false, null);
 
 			ClearGridSelection();
 			SelectedCell.Deactivate();
@@ -177,15 +171,7 @@ public class InputManager : MonoBehaviour {
 		return WorldBehaviour.Instance.Game.StateManager.IsGamePlayState;
 	}
 
-	private bool IsGameFreeMode() {
-		return WorldBehaviour.Instance.Game.StateManager.IsGameFreeMode;
-	}
-
-	private bool IsMyGameView() {
-		return WorldBehaviour.Instance.Game.IsMyGameView();
-	}
-
 	private void InstantiateHarvestingFX(Vector3 origin, LandType landType) {
-		WorldBehaviour.Instance.GameFreeMode.HarvestTargetLand(origin, landType);
+		WorldBehaviour.Instance.GamePlay.HarvestTargetLand(origin, landType);
 	}
 }

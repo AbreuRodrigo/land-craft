@@ -2,11 +2,5 @@
 	Initializing,
 	GameMenu,
 	GameLobby,
-	StageSelection,
-	GamePlay,
-	GameFreeMode,
-	GameStageGoal,
-	Pause,
-	GameOver,
-	StageCleared
+	GamePlay
 }

@@ -4,25 +4,12 @@ using System.Collections;
 using System.Reflection;
 
 public abstract class CoreController : MonoBehaviour {
-	public int currentStage;
-	public int totalStages;
-
 	private PlayerStatsManager playerStatsManager;
 	public PlayerStatsManager PlayerStatsManager {
 		get { return playerStatsManager; }
 	}
 
-	private static ProgressManager progressManager;
-	private static HashManager hashManager;
-
 	public CameraBehaviour GameCamera;
-
-	[SerializeField]
-	private GameDifficulty difficulty;
-	public GameDifficulty Difficulty {
-		get { return difficulty; }
-		set { difficulty = value; }
-	}
 
 	[SerializeField]
 	public GameState state;
@@ -41,14 +28,6 @@ public abstract class CoreController : MonoBehaviour {
 		set { view = value;	}
 	}
 
-	public ProgressManager ProgressManager { 
-		get { return progressManager; } 
-	}
-
-	public HashManager HashManager {
-		get { return hashManager; }
-	}
-
 	public StateManager StateManager { get; set; }
 
 	private bool stageIsOnGoing;
@@ -57,22 +36,15 @@ public abstract class CoreController : MonoBehaviour {
 		set { stageIsOnGoing = value; } 
 	}
 
+	public int[] PlayerGridSetupStats {
+		get { 
+			return PlayerStatsManager != null ? PlayerStatsManager.PlayerStats.GridSetup : null; 
+		}
+	}
+
 	public void Awake() {
 		StateManager = StateManager.Instance;
 		StateManager.ChangeState(State);
-
-		if(hashManager == null) {
-			hashManager = new HashManager(totalStages, SystemInfo.deviceUniqueIdentifier);
-		}
-		if(progressManager == null) {
-			progressManager = new ProgressManager(hashManager);
-		}
-
-		if (progressManager != null && (StateManager.IsGamePlayState || StateManager.IsGameStageGoalState)) {
-			currentStage = PlayerPrefsManager.ClickedStage;
-		} else {
-			currentStage = 0;
-		}
 
 		playerStatsManager = FindObjectOfType<PlayerStatsManager>();
 
@@ -80,7 +52,7 @@ public abstract class CoreController : MonoBehaviour {
 	}
 
 	public virtual void OnApplicationQuit() {
-		UpdatePlayerOfflineOnServer();
+		UpdatePlayerOfflineOnServer ();
 	}
 
 	public virtual void OnApplicationPause(bool pauseStatus) {
@@ -102,20 +74,8 @@ public abstract class CoreController : MonoBehaviour {
 	}
 
 	public void LoadGameFreeModeScene() {
-		LoadGameScene("gameFreeMode");
-	}
-
-	/*public void LoadGamePlayScene() {
 		LoadGameScene("gamePlay");
-	}*/
-
-	/*public void LoadGameStageSelection() {
-		LoadGameScene("gameStageSelection");
-	}*/
-
-	/*public void LoadGameModeSelection() {
-		LoadGameScene("gameModeSelection");
-	}*/
+	}
 
 	public void LoadGameScene(string scene) {
 		StartCoroutine(LoadSceneInSeconds(scene));
@@ -123,22 +83,6 @@ public abstract class CoreController : MonoBehaviour {
 
 	void ChangeGameView(GameView gameView) {
 		view = gameView;
-	}
-	
-	public void ChangeToOtherGameView() {
-		ChangeGameView(GameView.OtherView);
-	}
-	
-	public void ChangeToMyGameView() {
-		ChangeGameView(GameView.MyView);
-	}
-	
-	public bool IsOtherGameView() {
-		return view.Equals(GameView.OtherView);
-	}
-	
-	public bool IsMyGameView() {
-		return view.Equals(GameView.MyView);
 	}
 
 	public void UpdatePlayerStatsContent(PlayerStatsContent playerStatsContent) {
@@ -160,7 +104,7 @@ public abstract class CoreController : MonoBehaviour {
 			playerStatsManager.PlayerStats.Save();
 		}
 	}
-
+	
 	public void UpdatePlayerXPLocally(long xp) {
 		if(playerStatsManager != null && playerStatsManager.PlayerStats != null) {
 			playerStatsManager.PlayerStats.XP += xp;

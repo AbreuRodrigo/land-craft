@@ -14,11 +14,11 @@ public class ScoreManager : MonoBehaviour {
 	private int scoreByLandType;
 	private long tempScoreValue = 0L;
 
-	public GameFreeModeController game;
+	public GamePlayController game;
 
 	void Start() {
 		if(game == null) {
-			game = FindObjectOfType<GameFreeModeController>();
+			game = FindObjectOfType<GamePlayController>();
 		}
 
 		highscore.AddPoints(RetrieveHighscore());

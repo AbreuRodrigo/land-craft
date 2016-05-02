@@ -90,6 +90,13 @@ namespace DataLab {
 			}
 		}
 
+		public bool HasError() {
+			if (LastResponse != null && LastResponse.Fields == null) {
+				return ("1".Equals (LastResponse.Fields ["code"]));
+			} 
+			return false;
+		}
+
 		private IEnumerator WaitForSimpleResponse(WWW link, System.Action<DataLabObject> asyncResponse) {
 			int timer = 0;
 			bool timedOut = false;
@@ -122,7 +129,7 @@ namespace DataLab {
 				}
 
 				response.AddField ("code", "1")
-				        .AddField ("message", urlErrorMsg);				
+				        .AddField ("message", urlErrorMsg);
 			}
 
 			LastResponse = response;
@@ -131,7 +138,7 @@ namespace DataLab {
 				asyncResponse(LastResponse);
 			}
 
-			HasLoaded = true;
+			HasLoaded = !HasError();
 		}
 
 		private IEnumerator WaitForListResponse(WWW link, System.Action<List<DataLabObject>> asyncResponse) {
@@ -182,7 +189,7 @@ namespace DataLab {
 				asyncResponse(responseList);
 			}
 
-			HasLoaded = true;
+			HasLoaded = !HasError();
 		}
 
 		private string StringToJSON(string key, string value) {
@@ -195,6 +202,32 @@ namespace DataLab {
 			return json;
 		}
 
+		private string AssembleValue(object value) {
+			Type valueType = value.GetType();
+
+			string valueResponse = ""; 
+
+			if (valueType.IsArray) {
+				valueResponse = "";
+
+				int[] array = (int[])value;
+				int c = 0;
+
+				foreach (int e in array) {
+					valueResponse += e;
+					c++;
+
+					if (c < array.Count ()) {
+						valueResponse += ",";
+					}						
+				}
+			} else {
+				valueResponse = value.ToString ();
+			}
+
+			return valueResponse;
+		}
+
 		private string ObjectToJSON(DataLabObject obj) {
 			string json = "{";
 
@@ -204,7 +237,7 @@ namespace DataLab {
 			if(n > 0) {
 				foreach(var f in obj.Fields) {
 					json += "\"" + f.Key + "\"";
-					json += ":\"" + f.Value + "\"";
+					json += ":\"" + AssembleValue(f.Value) + "\"";
 					
 					if (i < n - 1) {
 						json += ",";

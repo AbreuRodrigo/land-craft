@@ -5,19 +5,13 @@ public class WorldBehaviour : MonoBehaviour {
 	public static WorldBehaviour Instance;
 
 	//Components
-	public ViewBehaviour MyView;
-	public ViewBehaviour OtherView;
 	public GridGenerator GridGenerator;
-	public GoalGenerator GoalGenerator;
 	public LandInstantiator LandInstantiator;
 	public LandAttractor LandAttractor;
 
 	public CoreController Game { get; set; }
-	public GamePlayController GamePlay { 
+	public GamePlayController GamePlay {
 		get { return (GamePlayController) Game; }
-	}
-	public GameFreeModeController GameFreeMode {
-		get { return (GameFreeModeController) Game; }
 	}
 
 	public int landEvents;
@@ -60,16 +54,6 @@ public class WorldBehaviour : MonoBehaviour {
 		Game = GameObject.FindObjectOfType<CoreController>();
 	}
 
-	public void TestCriterias() {
-		if(Game != null && MyGrid != null) {
-			if(OtherGrid != null && Game.StateManager.IsGamePlayState) {
-				GamePlay.TestStageGoalCriterias(MyGrid, OtherGrid);
-			}/*else if(Game.StateManager.IsGameFreeMode) {
-				GameFreeMode.TestStageGameOver();
-			}*/
-		}
-	}
-
 	public void DoWorldShake() {
 		if(!IsShaking && myAnimator != null && myAnimator.enabled) {
 			SoundManager.Instance.PlayEarthShake();
@@ -108,30 +92,6 @@ public class WorldBehaviour : MonoBehaviour {
 		}
 	}
 
-	public void FoldMyView() {
-		if(MyView != null) {
-			MyView.Fold();
-		}
-	}
-
-	public void UnfoldMyView() {
-		if(MyView != null) {
-			MyView.Unfold();
-		}
-	}
-
-	public void FoldOtherView() {
-		if(OtherView != null) {
-			OtherView.Fold();
-		}
-	}
-
-	public void UnfoldOtherView() {
-		if(OtherView != null) {
-			OtherView.Unfold();
-		}
-	}
-
 	public void AddLandEvent() {
 		if(Game.StateManager.IsGamePlayState) {
 			landEvents++;
@@ -146,6 +106,12 @@ public class WorldBehaviour : MonoBehaviour {
 
 	public bool HasLandEventsOnGoing() {
 		return landEvents > 0;
+	}
+
+	public void UpdateGridSetupStatsForPersistence(int index, int value) {
+		if(GamePlay != null && GamePlay.PlayerStatsManager != null) {
+			GamePlay.PlayerStatsManager.PlayerStats.GridSetup[index] = value;
+		}
 	}
 
 	private CellBehaviour RetrieveCellFromMyGridByIndex(int index) {

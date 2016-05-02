@@ -73,7 +73,7 @@ public class ResourceFXManager : MonoBehaviour {
 							moreResourceFX.Value = relation.value;
 						}
 
-						GUIManagerGameFreeMode.Instance.SumUpResourceByType(relation.resource, relation.value);
+						GUIManagerGamePlay.Instance.SumUpResourceByType(relation.resource, relation.value);
 					}
 
 					yield return new WaitForSeconds(0.5f);

@@ -5,12 +5,8 @@ using System.Collections;
 public class GUIManagerGameLoading : GUIManagerBase {
 	public static GUIManagerGameLoading Instance;
 
-	[Header("Images")]
-	public Image logo;
-
 	[Header("Texts")]
 	public Text loading;
-	public Text noInternetConnection;
 
 	[Header("Components")]
 	public TopScreenMessage topScreenMessage;
@@ -21,7 +17,7 @@ public class GUIManagerGameLoading : GUIManagerBase {
 		}
 	}
 
-	public void Start() {
+	void Start() {
 		base.Start();
 	}
 		
@@ -31,13 +27,6 @@ public class GUIManagerGameLoading : GUIManagerBase {
 		if(screenFader != null) {
 			screenFader.FadeOutFast(null, game.LoadGameLobby);
 		}
-	}
-	
-	public void ShowNoInternetConnectionMessage() {
-		DisableLogo();		
-		DisableLoadingMessage();
-		
-		noInternetConnection.gameObject.SetActive(true);
 	}
 
 	public void PlayTakingLongerMessage() {
@@ -58,11 +47,6 @@ public class GUIManagerGameLoading : GUIManagerBase {
 		if (topScreenMessage != null) {
 			topScreenMessage.PlayRetryingTheConnectionMessage();
 		}
-	}
-
-	private void DisableLogo() {
-		logo.enabled = false;
-		logo.gameObject.SetActive(false);
 	}
 
 	private void DisableLoadingMessage() {

@@ -9,7 +9,7 @@ namespace DataLab {
 
 	public class DataLabObject {
 		protected string documentName;
-		public string DocumentName { 
+		public string DocumentName {
 			get {
 				return documentName;
 			}
@@ -88,6 +88,14 @@ namespace DataLab {
 			return Convert.ToString(fields.ContainsKey(key) ? fields[key] : "");
 		}
 
+		public int[] GetIntArray(string key) {
+			string response = (string)fields[key];
+
+			string[] strArray = response.Split (',');
+
+			return Array.ConvertAll (strArray, s => int.Parse(s));
+		}
+
 		public byte[] GetBytes(string key) {
 			BinaryFormatter bf = new BinaryFormatter();
 			MemoryStream ms = new MemoryStream();
@@ -105,6 +113,14 @@ namespace DataLab {
 				new Rect (0, 0, texture.width, texture.height), 
 				new Vector2(0.5f, 0.5f)
 			);
+		}
+
+		public bool HasErrorMessage() {
+			if(fields != null && fields.Count == 2 && "1".Equals(fields["code"])) {
+				return true;
+			}
+
+			return false;
 		}
 
 		private void SaveImage(Texture2D t) {
